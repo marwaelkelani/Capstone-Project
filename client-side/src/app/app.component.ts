@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Marwa-side';
+  salePercent = '10%';
+  banner = "./assets/SVBanner.png";
+  math = './assets/calculator.png';
+  science = './assets/science.png';
+  art = './assets/paint-palette.png';
+  finance = './assets/budget.png';
 }
