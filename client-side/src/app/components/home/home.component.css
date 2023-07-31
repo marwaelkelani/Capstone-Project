@@ -1,0 +1,64 @@
+h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 45px;
+}
+
+#hero {
+    background-image: url('/assets/hero.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+    width: 100vw;
+    height: 600px;
+}
+
+img {
+    width: 100vw;
+    height: 60vh;
+  
+}
+
+.yellow-outline{
+    border: 3px #f7cd37 solid;
+ 
+    
+}
+
+h3 {
+    background-color: #f7cd37;
+    width: 600px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    
+
+}
+
+img {
+    height: 500px;
+    width: 500px;
+}
+
+
+#freebie-img, .product-img {
+    width: 250px;
+    height: 250px;
+}
+
+.free-img, .email-list {
+    width: 350px;
+}
+
+.product-info {
+    margin: 0 auto;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}

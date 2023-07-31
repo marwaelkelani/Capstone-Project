@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  salePercent = '10%';
+  salePercent = '25%';
   banner = "./assets/SVBanner.png";
   math = './assets/calculator.png';
   science = './assets/science.png';
   art = './assets/paint-palette.png';
-  finance = './assets/budget.png';
+  tech= './assets/tech.png';
 }
