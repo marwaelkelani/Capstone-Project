@@ -1,0 +1,14 @@
+#filter-outline {
+    border: 2px solid #f7cd37;
+}
+
+#filter-title {
+    background-color: #f7cd37;
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* #product-grid {
+    border: 2px solid black;
+} */

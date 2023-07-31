@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-
+  math = './assets/calculator.png';
+  science = './assets/science.png';
+  art = './assets/paint-palette.png';
+  tech= './assets/tech.png';
 }

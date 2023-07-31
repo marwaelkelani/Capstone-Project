@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
-
+  math = './assets/calculator.png';
 }

@@ -1,1 +1,76 @@
-<p>shop works!</p>
+<div class="row">
+    <!-- Filter Side -->
+    <div class="col-3" id="filter">
+        <div id="filter-outline" class="mt-5">
+            <h2 class="text-center" id="filter-title">Filter</h2>
+            <div class="row">
+            <form class="col-6 offset-1">
+                <h4>Price</h4>
+                <input type="checkbox"> Less than $5 <br>
+                <input type="checkbox"> $5 - $10 <br>
+                <input type="checkbox"> $11 - $20 <br>
+                <input type="checkbox"> $20 - $50 <br>
+                <input type="checkbox"> $50 or more <br><br>
+
+                <h4>Grade</h4>
+                <input type="checkbox"> Grade 7 <br>
+                <input type="checkbox"> Grade 8 <br>
+                <input type="checkbox"> Grade 7/8 <br><br>
+    
+                <h4>Subject</h4>
+                <input type="checkbox"> Math <br>
+                <input type="checkbox"> Science <br>
+                <input type="checkbox"> Art <br>
+                <input type="checkbox"> Technology <br><br>
+    
+                <h4>Type</h4>
+                <select>
+                    <option selected disabled>Choose a product type</option>
+                    <option>Unit</option>
+                    <option>Lesson</option>
+                    <option>Game</option>
+                    <option>Assessment</option>
+                    <option>Bundle</option>
+                    <option>Planning</option>
+                </select> <br><br>
+
+                <button type="button" class="btn btn-primary">Apply Changes</button><br><br>
+
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <!-- Products Side -->
+    <div class="col-9" id="product-grid">
+        <h2 class="text-center m-4">Shop Resources</h2>
+        <div class="row px-5">
+            <!-- Product Card 1-->
+            <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
+                <img [src]="math" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><a>Product Title</a></h5>
+                    <p class="card-text text-center">$X.XX</p>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="card col-4 mx-4 my-4" style="width: 18rem;">
+                <img [src]="math" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><a>Product Title</a></h5>
+                    <p class="card-text text-center">$X.XX</p>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="card col-4 mx-4 my-4" style="width: 18rem;">
+                <img [src]="math" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><a>Product Title</a></h5>
+                    <p class="card-text text-center">$X.XX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
