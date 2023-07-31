@@ -1,0 +1,63 @@
+
+
+<div class="row">
+    <h1 class="col-6 offset-5">About</h1>
+    <!-- Right Side -->
+    <div class="col-5 offset-2 my-4 p-4">
+        <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, rerum velit sit inventore, ut dolorem hic accusantium quidem minus id voluptatibus, nihil totam quasi et libero? Quia velit alias eaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae fugiat placeat eos debitis impedit, perferendis aliquid dignissimos! Facilis impedit ipsa iste nulla vero aut tempore necessitatibus nihil rem possimus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste alias officiis expedita deleniti ad nesciunt similique consectetur labore, quidem totam necessitatibus corporis sit debitis enim. Aliquam libero voluptas molestias fugit? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus iure esse molestias similique dolores dicta reiciendis, voluptas illum ad ea laudantium nisi mollitia fuga, in ut quis reprehenderit sunt sed.</p></div>
+    </div>
+   
+    <!-- Left Side -->
+   
+    <div class="col-4 my-4 p-4">
+        <img [src]="profile" id="profile-pic">
+    </div>
+</div>
+
+<!-- Contact Form -->
+
+<section>
+    <div id="contact" class="m-4">
+        <div class="blue-outline pb-4">
+            <h3 class="p-2 text-white">Contact Me</h3>
+            <div class="contact-form p-4 row">
+                <form class="col-6 offset-3" [formGroup]="contactForm">
+
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" formControlName="first_name">
+                        <span *ngIf="first_name.touched && first_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name</span>
+                        <span *ngIf="first_name.dirty && first_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                      </div>
+
+                      <!-- Last Name -->
+                      <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" formControlName="last_name">
+                        <span *ngIf="last_name.touched && last_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name</span>
+                        <span *ngIf="last_name.dirty && last_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                      </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" formControlName="email">
+                        <span *ngIf="email.touched && email.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide an email</span>
+                        <span *ngIf="email.dirty && email.errors?.['email']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                      </div>
+                    <!-- Message -->
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Message</label>
+                        <textarea class="form-control" rows="3" formControlName="message"></textarea>
+                        <span *ngIf="message.touched && message.errors?.['required']" [ngStyle]="{'color': redColor}">Please include a message</span>
+                      </div>
+                    <button type="submit" class="btn btn-primary" (click)="onMessage()">Submit</button>
+                  </form>
+        
+                
+            </div>
+        </div>
+    
+    </div>
+    </section>
