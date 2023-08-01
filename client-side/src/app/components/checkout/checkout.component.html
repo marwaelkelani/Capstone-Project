@@ -1,1 +1,52 @@
-<p>checkout works!</p>
+<div class="row mt-5 mb-5">
+    <h1 class="text-center">Checkout</h1>
+    <div class="form col-6 offset-3">
+      
+        <form [formGroup]="checkoutForm">
+            <h3>Contact Information</h3>
+            <hr>
+            <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First Name" formControlName="first_name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name">
+                </div>
+              </div> <br>
+
+            <div class="mb-3">
+              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email address" formControlName="email">
+              <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <h3>Credit Card Information</h3>
+            <hr>
+            <div class="mb-3">
+                <input type="tel" class="form-control" aria-describedby="emailHelp" placeholder="Card Number" formControlName="card_number">
+              </div>
+           
+              <div class="mb-3">
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Name of Cardholder">
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" placeholder="Expiration Date" formControlName="expiry_date">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" placeholder="Security Code" formControlName="security_number">
+                </div>
+              </div> <br>
+
+              
+
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Add me to the email list to get exclusive offers on future products.</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactFormService } from 'src/app/services/contact-form.service';
 
 @Component({
   selector: 'app-about',
@@ -11,7 +12,7 @@ profile = '../assets/aboutimg.png'
 contactForm!: FormGroup;
 redColor='red';
 
-constructor(private fb:FormBuilder){
+constructor(private fb:FormBuilder, private contactService: ContactFormService){
   this.contactForm = fb.group({
     first_name: ['', [Validators.required, Validators.minLength(2)]],
     last_name: ['', [Validators.required, Validators.minLength(2)]],
@@ -39,6 +40,19 @@ get message(){
 
 // TODO: Complete this function when your database are service are created
 onMessage(){
+  let newMessage = this.contactForm.value;
+  this.contactForm.reset();
+  
+  this.contactService.sendMessage(newMessage).subscribe({
+    next: (result)=>{
+      console.log(result);
+      alert("Your message was successfully sent!");
+    },
+    error: (err)=>{
+      alert('Something went wrong.');
+      console.log(err);
+    }
+  });
 }
 
 }
