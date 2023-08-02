@@ -1,5 +1,5 @@
 .carousel-container {
-    width: 300px;
+    width: 450px;
 }
 
 .carousel-control-next,
@@ -7,9 +7,9 @@
     filter: invert(100%);
 }
 
-.product-info {
+/* .product-info {
     border: 2px solid #00509d;
-}
+} */
 
 h1 {
     text-align: center;

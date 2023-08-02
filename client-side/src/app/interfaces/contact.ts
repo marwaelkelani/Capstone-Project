@@ -3,4 +3,5 @@ export interface Contact {
     last_name: string;
     email: string;
     message: string;
+    date: DateConstructor
 }

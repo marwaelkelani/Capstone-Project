@@ -26,6 +26,12 @@ const Contact = config.define('contact', {
     message : {
         type: Sequelize.TEXT,
         allowNull: false,
+    },
+
+    date : {
+        type: Sequelize.DATE,
+        allowNull: true,
+
     }
 }, {timestamps: false});
 

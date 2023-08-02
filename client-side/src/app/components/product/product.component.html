@@ -1,12 +1,15 @@
-
-<div class="row my-4">
-<!-- Carousel on the Right of Product Image -->
-<div class="carousel-container col-4 offset-3">
-    <div id="carouselExampleIndicators" class="carousel slide">
+<div>
+  <div class="row my-4 text-center">
+    <!-- Carousel on the Right of Product Image -->
+    <div class="carousel-container col-4 offset-3">
+      <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -22,11 +25,13 @@
             <img [src]="tech" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -34,51 +39,49 @@
     </div>
 
     <!-- Product Info on the Left -->
-    <div class="col-4 offset-1 product-info p-4">
-        <h1>Product Info</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis exercitationem in neque dolorum atque ipsa vitae ut est possimus odio. Magni porro, laudantium cumque asperiores autem assumenda. Atque, necessitatibus quis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum in consectetur soluta provident culpa repudiandae dicta odio, ipsa sit amet unde architecto aliquam voluptatum sapiente natus delectus ullam porro doloremque?</p>
+    <div class="col-4 product-info p-4">
+      <h1>product.name</h1>
+      <h3>product.price | currency</h3>
+      <p>product.description_short</p>
 
-        <div class="text-center">
-            <button type="button">-</button>
-            <input type="text">
-            <button type="button">+</button>
-        </div>
-
-        <div class="text-center mt-4">
-            <button type="button" class="btn btn-primary">Add to Cart</button>
-        </div>
-    </div>
-    </div>
-
-
-    <!-- More Details Below -->
-    <div class="more-info">
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                  More Details
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                <div class="accordion-body">
-                  <strong>Product Details:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, porro aut illum eos ipsa accusantium quo cumque assumenda quos aperiam repudiandae ut ducimus inventore maiores sed quia harum neque fugiat?
-                </div>
-              </div>
-            </div>
-    
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                  Terms of Use
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  <strong>Terms of Use:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum doloremque neque quisquam illo exercitationem voluptatibus labore facere omnis repudiandae nemo nisi nihil odio tenetur quia esse, dolorem placeat modi dolore!
-                </div>
-              </div>
-            </div>
+      <!-- More Details Below -->
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              More Product Details
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">product.description_long</div>
           </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Terms of Use
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="text-center">
+        <button type="button">-</button>
+        <input type="text">
+        <button type="button">+</button>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-primary">Add to Cart</button>
+      </div>
 
     </div>
+
+
+  </div>
+
+
+</div>
