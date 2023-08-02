@@ -1,4 +1,5 @@
 export interface Iproduct {
+    id: number;
     name: string;
     description_short: string;
     description_long: string;

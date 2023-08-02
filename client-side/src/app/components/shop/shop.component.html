@@ -50,7 +50,7 @@
                 <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
                     <img src="{{product.cover}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-center"><a>{{product.name}}</a></h5>
+                        <h5 class="card-title text-center"><a [routerLink]="['/products', product.id]">{{product.name}}</a></h5>
                         <p class="card-text text-center">{{product.price | currency }}</p>
                     </div>
                 </div>
