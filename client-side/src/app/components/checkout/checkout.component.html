@@ -8,34 +8,42 @@
             <div class="row">
                 <div class="col">
                   <input type="text" class="form-control" placeholder="First Name" formControlName="first_name">
-                  <p *ngIf="first_name.touched && first_name.errors?.['required']">First Name is required.</p>
+                  <p *ngIf="first_name.touched && first_name.errors?.['required']" [ngStyle]="{'color': redColor}">First Name is required.</p>
                 </div>
+
                 <div class="col">
                   <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name">
+                  <p *ngIf="last_name.touched && first_name.errors?.['required']" [ngStyle]="{'color': redColor}">Last Name is required.</p>
                 </div>
               </div> <br>
 
             <div class="mb-3">
-              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email address" formControlName="email">
+              <input type="email" class="form-control" placeholder="Email address" formControlName="email">
+              <p *ngIf="email.dirty && email.errors?.['email']" [ngStyle]="{'color': redColor}">Please provide a valid email.</p>
+              <p *ngIf="email.touched && email.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a valid email.</p>
               <div class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
             <h3>Credit Card Information</h3>
             <hr>
             <div class="mb-3">
-                <input type="tel" class="form-control" aria-describedby="emailHelp" placeholder="Card Number" formControlName="card_number">
+                <input type="tel" pattern="[0-9]*" maxlength="16" class="form-control" placeholder="Card Number" formControlName="card_number">
+                <p *ngIf="card_number.touched && card_number.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a valid credit card number.</p>
+                <p *ngIf="card_number.dirty && card_number.errors?.['minlength']" [ngStyle]="{'color': redColor}">Please provide a valid credit card number.</p>
+
               </div>
            
               <div class="mb-3">
-                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Name of Cardholder">
+                <input type="text" class="form-control" placeholder="Name of Card Holder" formControlName="card_name">
+                <p *ngIf="card_name.touched && card_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name.</p>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <input type="number" class="form-control" placeholder="Expiration Date" formControlName="expiry_date">
+                  <input type="tel" pattern="[0-9]*" maxlength="4" class="form-control" placeholder="Expiration Date mm/yy" formControlName="expiry_date">
                 </div>
                 <div class="col">
-                  <input type="number" class="form-control" placeholder="Security Code" formControlName="security_number">
+                  <input type="tel" pattern="[0-9]*" maxlength="4" class="form-control" placeholder="Security Code" formControlName="security_number">
                 </div>
               </div> <br>
 
@@ -45,7 +53,7 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Add me to the email list to get exclusive offers on future products.</label>
             </div>
-            <button type="button" class="btn btn-primary">Complete Payment</button>
+            <button type="button" class="btn btn-primary" (click)="onPayment()" [disabled]="checkoutForm.invalid">Complete Payment</button>
           </form>
     </div>
 
