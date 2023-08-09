@@ -26,12 +26,7 @@
                     <h4>Type</h4>
                     <select>
                         <option selected disabled>Choose a product type</option>
-                        <option>Unit</option>
-                        <option>Lesson</option>
-                        <option>Game</option>
-                        <option>Assessment</option>
-                        <option>Bundle</option>
-                        <option>Planning</option>
+                        <option *ngFor="let type of types">{{type.type_name}}</option>
                     </select> <br><br>
 
                     <button type="button" class="btn btn-primary">Apply Changes</button><br><br>
@@ -48,10 +43,11 @@
             <div class="col-4" *ngFor="let product of products">
                 <!-- Product Card 1-->
                 <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
-                    <img src="{{product.cover}}" class="card-img-top" alt="...">
+                    <a [routerLink]="['/products', product.id]"><img src="{{product.cover}}" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <h5 class="card-title text-center"><a [routerLink]="['/products', product.id]">{{product.name}}</a></h5>
                         <p class="card-text text-center">{{product.price | currency }}</p>
+                        <p *ngFor="let g of grades"></p>
                     </div>
                 </div>
 

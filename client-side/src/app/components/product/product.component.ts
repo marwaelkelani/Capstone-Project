@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
+import { Isubject } from 'src/app/interfaces/isubject';
+import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -15,6 +18,9 @@ export class ProductComponent {
   tech = './assets/tech.png';
   products!: Iproduct[];
   product!: Iproduct;
+  grades!: Igrades[];
+  subjects!: Isubject[];
+  types!: Itype[];
 
   constructor(private route: ActivatedRoute, private productService: ProductsService, private routeService: ActivatedRoute, private router: Router) {
     productService.getProducts().subscribe({
@@ -39,6 +45,42 @@ export class ProductComponent {
         console.log(err);
       }
     });
+
+
+    //Get product grade
+    productService.getGrade().subscribe({
+      next: (results)=> {
+        this.grades = results;
+        console.log(this.grades)
+      }, 
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+
+    //Get product subject
+    productService.getSubject().subscribe({
+      next: (results)=> {
+        this.subjects = results;
+      }, 
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+
+    //Get product type
+    productService.getType().subscribe({
+      next: (results)=> {
+        this.types = results;
+      }, 
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+
   }
 
   onClick(){
@@ -48,8 +90,6 @@ export class ProductComponent {
   returnToShop(){
     this.router.navigateByUrl('/shop'); 
   }
-
-
 
 
 }

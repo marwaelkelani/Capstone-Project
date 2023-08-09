@@ -12,7 +12,7 @@ const Grade = config.define('grade', {
         type: Sequelize.INTEGER,
         allowNull: false,
     }, 
-    grade: {
+    grade_number: {
         type: Sequelize.INTEGER,
         allowNull: false,
     }, 

@@ -8,6 +8,7 @@
             <div class="row">
                 <div class="col">
                   <input type="text" class="form-control" placeholder="First Name" formControlName="first_name">
+                  <p *ngIf="first_name.touched && first_name.errors?.['required']">First Name is required.</p>
                 </div>
                 <div class="col">
                   <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name">

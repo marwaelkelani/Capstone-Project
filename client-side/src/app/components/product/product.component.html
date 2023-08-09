@@ -42,8 +42,15 @@
     <div class="col-4 product-info p-4">
       <h1>{{product.name}}</h1>
       <h3>{{product.price | currency}}</h3>
+      <div id="tags">
+        <p class="tag m-2" *ngFor="let grades of product.grades">Grade {{grades.grade_number | json}}</p>
+        <p class="tag m-2" *ngFor="let subjects of product.subjects">{{subjects.subject_name}}</p>
+        <p class="tag m-2" *ngFor="let types of product.types">{{types.type_name}}</p>
+      </div>
+      
+     
       <p>{{product.description_short}}</p>
-
+      
       <!-- More Details Below -->
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
@@ -68,12 +75,14 @@
         </div>
       </div><br>
 
+      <!-- Incrementor -->
       <div class="text-center">
         <button type="button">-</button>
         <input type="text">
         <button type="button">+</button>
       </div>
 
+      <!-- Buttons -->
       <div class="text-center mt-4">
         <button type="button" class="btn btn-primary mx-4" (click)="onClick()">Add to Cart</button>
         <button type="button" class="btn btn-warning mx-4" (click)="returnToShop()">Return to Shop</button>

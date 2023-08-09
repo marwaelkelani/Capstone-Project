@@ -3,7 +3,7 @@
 }
 
 .carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+.carousel-control-prev{
     filter: invert(100%);
 }
 
@@ -13,4 +13,15 @@
 
 h1 {
     text-align: center;
+}
+
+#tags {
+/* border: solid black 1px; */
+background-color: #FBB0AE;
+border-radius: 15px;
+}
+
+.tag {
+    display: inline-block;
+    font-weight: bold;
 }

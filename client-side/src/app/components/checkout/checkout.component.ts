@@ -25,4 +25,9 @@ checkoutForm!: FormGroup
 
   //Getters for Checkout Form
 
+  get first_name(){
+    return this.checkoutForm.get('first_name')!;
+  }
+
+
 }

@@ -1,3 +1,7 @@
+import { Igrades } from "./igrades";
+import { Isubject } from "./isubject";
+import { Itype } from "./itype";
+
 export interface Iproduct {
     id: number;
     name: string;
@@ -7,8 +11,10 @@ export interface Iproduct {
     preview1: string;
     preview2: string;
     preview3: string;
-    grade: string;
     price: number;
-    type: number; //fix to make it an array for itype (product_type)
+    subjects?: Isubject[];
+    types?: Itype[]; 
+    grades?: Igrades[];
+    grade_number?:Igrades[]
 }
 

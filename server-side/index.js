@@ -17,14 +17,14 @@ const Grade = require('./models/grade');
 ///Associations between Products and Subjects
 Product.belongsToMany(Subject, {
     through: ProductSubject,
-    // foreignKey: 'product_id',
-    // otherKey: 'subject_id'
+    foreignKey: 'product_id',
+    otherKey: 'subject_id'
 });
 
 Subject.belongsToMany(Product, {
     through: ProductSubject,
-    // foreignKey: 'subject_id',
-    // otherKey: 'product_id'
+    foreignKey: 'subject_id',
+    otherKey: 'product_id'
 });
 
 ///Associations between Products and Types
@@ -35,7 +35,7 @@ Product.belongsToMany(Type, {
 });
 
 Type.belongsToMany(Product, {
-    through: ProductSubject,
+    through: ProductType,
     foreignKey: 'type_id',
     otherKey: 'product_id'
 });
@@ -85,7 +85,7 @@ app.post('/contact', (req, res)=>{
 //Get all product info
 app.get('/products', (req,res)=>{
     let data = {
-        include: [Grade, Type]
+        include: [Subject, Type, Grade]
     }
     Product.findAll(data).then((results)=>{
         res.status(200).send(results);
@@ -98,8 +98,10 @@ app.get('/products', (req,res)=>{
 //Filter products by product id
 app.get('/products/:id', (req,res)=>{
     let id = parseInt(req.params.id);
+    let options = {
+        include: [Grade, Subject, Type]  };
 
-    Product.findByPk(id).then((result)=>{
+    Product.findByPk(id, options).then((result)=>{
         if(result){
             res.status(200).send(result);
         }else {
@@ -109,6 +111,45 @@ app.get('/products/:id', (req,res)=>{
         res.status(500).send(err);
     });
 });
+
+
+//GET GRADES
+app.get('/grades', (req,res)=>{
+    let data={
+    
+        // where: {grade_number:req.params.grade_number}
+    };
+
+    // let gradeNumber = parseInt(req.params.grade_number) 
+    Grade.findAll(data).then((results)=>{
+            res.status(200).send(results)
+        })
+        .catch((err)=>{
+            res.status(500).send(err);
+        });
+    });
+
+//GET SUBJECTS
+app.get('/subjects', (req, res)=>{
+    
+    Subject.findAll().then((results)=>{
+        res.status(200).send(results);
+    }).catch((err)=>{
+        res.status(500).send(err);
+    })
+});
+
+//GET TYPES
+app.get('/types', (req, res)=>{
+    
+    Type.findAll().then((results)=>{
+        res.status(200).send(results);
+    }).catch((err)=>{
+        res.status(500).send(err);
+    })
+});
+
+// FILTERS
 
 
 //Web Server

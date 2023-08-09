@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
+import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,6 +15,8 @@ export class ShopComponent {
   products!: Iproduct[];
   id!: number;
   product!: Iproduct;
+  types!: Itype[];
+  grades!: Igrades[];
 
   constructor(private productService: ProductsService, private routeService: ActivatedRoute){
     
@@ -20,6 +24,28 @@ export class ShopComponent {
     productService.getProducts().subscribe({
       next: (results)=>{
         this.products= results;
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    });
+
+    //Get product grade
+    productService.getGrade().subscribe({
+      next: (results)=> {
+        this.grades = results;
+        console.log(this.grades)
+      }, 
+      error: (err) => {
+        console.log(err);
+      }
+    });
+    
+
+    //Get Types to show in filter dropdown
+    productService.getType().subscribe({
+      next: (results)=>{
+        this.types=results;
       },
       error: (err)=>{
         console.log(err);
