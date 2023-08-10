@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
+import { Isubject } from 'src/app/interfaces/isubject';
 import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -11,12 +12,18 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
-  math = './assets/calculator.png';
   products!: Iproduct[];
   id!: number;
   product!: Iproduct;
   types!: Itype[];
   grades!: Igrades[];
+
+  //Filter Subject Buttons
+  math!: Isubject;
+  science!: Isubject;
+  art!: Isubject;
+  technology!: Isubject
+
 
   constructor(private productService: ProductsService, private routeService: ActivatedRoute){
     
