@@ -82,11 +82,26 @@ app.post('/contact', (req, res) => {
 
 //ROUTES RELATED TO PRODUCTS & SHOP
 
-//Get all product info
+//Get all product info and filter query data for grade number, subject name and type name
 app.get('/products', (req, res) => {
     let data = {
-        include: [Subject, Type, Grade]
+        include: [Subject, Type, Grade], 
+        where: {}
     }
+
+    if(req.query.grade_number !==undefined && req.query.grade_number){
+        data.where['$grade_number$'] = req.query.grade_number;
+    }
+
+    if(req.query.subject_name !==undefined && req.query.subject_name){
+        data.where['$subject_name$'] = req.query.subject_name;
+    }
+
+    if(req.query.type_name !==undefined && req.query.type_name){
+        data.where['$type_name$'] = req.query.type_name;
+    }
+
+
     Product.findAll(data).then((results) => {
         res.status(200).send(results);
     }).catch((err) => {
@@ -150,92 +165,6 @@ app.get('/types', (req, res) => {
     })
 });
 
-// FILTERS
-///Customized Filters for Products Table
-app.get('/filter', (req, res) => {
-    let options = {
-        where: {},
-    };
-
-    //By Product Name
-    if (req.query.name !== undefined) {
-        options.where.name = req.query.name;
-    }
-
-    //By Product Short Description
-    if (req.query.short_description !== undefined) {
-        options.where.short_description = req.query.short_description;
-    }
-
-    //By Product Price
-    if (req.query.price !== undefined) {
-        options.where.price = req.query.price;
-    }
-
-    Product.findAll(options).then((results) => {
-        res.status(200).send(results);
-    }).catch((err) => {
-        res.status(500).send(err)
-    });
-})
-
-//Filter Grades
-app.get('/filter/grades', (req, res) => {
-    let option = {
-        where: { grade_number: req.query.grade_number },
-        // include: [Product]
-    }
-
-    if (req.query.grade_number !== undefined) {
-        option.where.grade_number = req.query.grade_number;
-    }
-
-    Grade.findAll(option).then((results) => {
-        res.status(200).send(results);
-    }).catch((err) => {
-        res.status(500).send(err);
-    });
-})
-
-
-//Filter Subjects
-
-app.get('/filter/subjects', (req, res) => {
-    let options = {
-        where: { subject_name: req.query.subject_name },
-        include: [Product]
-    }
-    //By Subject
-    if (req.query.subject_name !== undefined) {
-        options.where.subject_name = req.query.subject_name;
-    }
-
-    Subject.findAll(options).then((results)=>{
-        res.status(200).send(results);
-    }).catch((err)=>{
-        res.status(500).send(err);
-    });
-})
-
-
-//Filter Types
-app.get('/filter/types', (req, res)=>{
-    let options = {
-        where: {type_name: req.query.type_name},
-        include: [Product]
-    };
-
-    if(req.query.type_name !==undefined){
-        options.where.type_name = req.query.type_name;
-    }
-
-    Type.findAll(options).then((results)=>{
-        res.status(200).send(results);
-    }).catch((err)=>{
-        res.status(500).send(err);
-    });
-
-})
 
 //Web Server
 app.listen(4000, function () {

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs';
 import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
 import { Isubject } from 'src/app/interfaces/isubject';
 import { Itype } from 'src/app/interfaces/itype';
+import { FilterProductsService } from 'src/app/services/filter-products.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -17,16 +20,26 @@ export class ShopComponent {
   product!: Iproduct;
   types!: Itype[];
   grades!: Igrades[];
+  subjects!: Isubject[];
+ 
 
   //Filter Subject Buttons
+  filterForm!: FormGroup
   math!: Isubject;
   science!: Isubject;
   art!: Isubject;
   technology!: Isubject
 
 
-  constructor(private productService: ProductsService, private routeService: ActivatedRoute){
-    
+  constructor(private productService: ProductsService, private routeService: ActivatedRoute, private filterService: FilterProductsService, fb:FormBuilder){
+    //Filter Form
+    this.filterForm = fb.group({
+      grade_number: ['', Validators.required],
+      subject_name: ['', Validators.required],
+      type_name: ['', Validators.required]
+    });
+
+
     //Get Products to Show on the Shop Grid
     productService.getProducts().subscribe({
       next: (results)=>{
@@ -37,7 +50,20 @@ export class ShopComponent {
       }
     });
 
-    //Get product grade
+
+    //Get Subjects for filter section
+    productService.getSubject().subscribe({
+      next: (results)=>{
+        this.subjects = results;
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    });
+
+
+
+    //Get product grade for filter section
     productService.getGrade().subscribe({
       next: (results)=> {
         this.grades = results;
@@ -49,7 +75,7 @@ export class ShopComponent {
     });
     
 
-    //Get Types to show in filter dropdown
+    //Get Types to show in filter section
     productService.getType().subscribe({
       next: (results)=>{
         this.types=results;
@@ -72,6 +98,30 @@ export class ShopComponent {
         console.log(err);
       }
     });
+
   }
 
+  onClick(){
+    this.productService.getProducts(this.filterForm.value).subscribe({
+      next: (results)=>{
+        this.products = results;
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  //Getters for filterForm
+  get grade(){
+    return this.filterForm.get('grade')!;
+  }
+
+  get subject(){
+    return this.filterForm.get('subject')!;
+  }
+
+  get type(){
+    return this.filterForm.get('type')!;
+  }
 }

@@ -14,19 +14,19 @@ export class FilterProductsService {
   filterSubject(){
     let queryParams = new HttpParams();
 
-    return this.httpClient.get<Isubject>('http://localhost:4000/filter/subjects', {params: queryParams})
+    return this.httpClient.get<Isubject[]>('http://localhost:4000/filter/subjects', {params: queryParams})
   }
 
   filterType(){
     let queryParams = new HttpParams();
 
-    return this.httpClient.get<Itype>('http://localhost:4000/filter/types', {params: queryParams})
+    return this.httpClient.get<Itype[]>('http://localhost:4000/filter/types', {params: queryParams})
   }
 
   filterGrade(){
     let queryParams = new HttpParams();
 
-    return this.httpClient.get<Igrades>('http://localhost:4000/filter/grades', {params: queryParams})
+    return this.httpClient.get<Igrades[]>('http://localhost:4000/filter/grades', {params: queryParams})
   }
  
 }
