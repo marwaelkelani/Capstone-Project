@@ -6,7 +6,6 @@ import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
 import { Isubject } from 'src/app/interfaces/isubject';
 import { Itype } from 'src/app/interfaces/itype';
-import { FilterProductsService } from 'src/app/services/filter-products.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -31,7 +30,7 @@ export class ShopComponent {
   technology!: Isubject
 
 
-  constructor(private productService: ProductsService, private routeService: ActivatedRoute, private filterService: FilterProductsService, fb:FormBuilder){
+  constructor(private productService: ProductsService, private routeService: ActivatedRoute, fb:FormBuilder){
     //Filter Form
     this.filterForm = fb.group({
       grade_number: ['', Validators.required],

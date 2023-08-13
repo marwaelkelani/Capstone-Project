@@ -1,1 +1,9 @@
-<p>shopping-cart works!</p>
+<h3 class="text-center">Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+    <div class="row">
+        <span class="col-3">{{item.name}}</span>
+        <span class="col-3">{{item.price | currency}}</span>
+    </div>
+   
+</div>

@@ -5,6 +5,8 @@ import { Iproduct } from 'src/app/interfaces/iproduct';
 import { Isubject } from 'src/app/interfaces/isubject';
 import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-product',
@@ -22,7 +24,7 @@ export class ProductComponent {
   subjects!: Isubject[];
   types!: Itype[];
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService, private routeService: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private productService: ProductsService, private routeService: ActivatedRoute, private router: Router, private cartService: ShoppingCartService) {
     productService.getProducts().subscribe({
       next: (results) => {
         this.products = results;
@@ -91,5 +93,10 @@ export class ProductComponent {
     this.router.navigateByUrl('/shop'); 
   }
 
+  //Cart Functions
+  addToCart(product: Iproduct){
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
 
 }
