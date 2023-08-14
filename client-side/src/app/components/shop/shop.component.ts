@@ -135,6 +135,7 @@ export class ShopComponent {
       const qty = product.quantity;
       const amt = product.price;
       this.subTotal = amt * qty;  
+      // product.price = this.subTotal
       this.cartService.saveCart();
     }
 

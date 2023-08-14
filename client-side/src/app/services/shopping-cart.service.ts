@@ -23,7 +23,7 @@ products: Iproduct[] = [];
   }
 
   clearCart(){
-    localStorage.clear()
+    localStorage.clear();
   }
 
   saveCart(){

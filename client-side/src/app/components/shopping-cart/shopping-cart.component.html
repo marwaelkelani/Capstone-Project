@@ -6,7 +6,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
@@ -22,9 +22,12 @@
             <td><button type="button" class="btn btn-primary" (click)="removeFromCart(product)">Remove Product</button></td>
           </tr>
         </tbody>
+        <tr>
+          <th>Total Price: {{total | currency }}</th>
+        </tr>
       </table>
 
     <button type="button" class="btn btn-primary mx-4" (click)="onClick()">Proceed to Checkout</button>
-    <button type="button" class="btn btn-primary mx-4" (click)="clearCart()">Clear Cart</button>
+    <button type="button" class="btn btn-danger mx-4" (click)="clearCart()">Clear Cart</button>
     
 </div>

@@ -23,6 +23,7 @@ export class ShoppingCartComponent {
 
   clearCart(){
     this.cartService.clearCart();
+    return this.products = this.cartService.getItems();
   }
 
   onClick(){
@@ -32,7 +33,17 @@ export class ShoppingCartComponent {
   //Remove product from cart
   removeFromCart(product:any){
     this.cartService.removeProduct(product);
+    return this.products = this.cartService.getItems();
+  }
 
-    
+  //Calculate the total
+  get total(){
+    return this.products?.reduce(
+      (sum, product) => ({
+        quantity: 1,
+        price: sum.price + product.quantity * product.price
+      }),
+      {quantity: 1, price: 0}
+    ).price
   }
 }
