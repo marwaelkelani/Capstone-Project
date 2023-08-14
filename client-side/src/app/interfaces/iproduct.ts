@@ -12,6 +12,7 @@ export interface Iproduct {
     preview2: string;
     preview3: string;
     price: number;
+    quantity: number;
     subjects?: Isubject[];
     types?: Itype[]; 
     grades?: Igrades[];

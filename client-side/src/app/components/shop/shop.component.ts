@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
 import { Igrades } from 'src/app/interfaces/igrades';
 import { Iproduct } from 'src/app/interfaces/iproduct';
 import { Isubject } from 'src/app/interfaces/isubject';
 import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
+  styleUrls: ['./shop.component.css'],
+  // imports: [MatPaginatorModule]
 })
 export class ShopComponent {
   products!: Iproduct[];
@@ -20,7 +21,8 @@ export class ShopComponent {
   types!: Itype[];
   grades!: Igrades[];
   subjects!: Isubject[];
- 
+  
+
 
   //Filter Subject Buttons
   filterForm!: FormGroup
@@ -29,8 +31,12 @@ export class ShopComponent {
   art!: Isubject;
   technology!: Isubject
 
+  //Cart
+  productsList: Iproduct[] = [];
+  subTotal!: any
 
-  constructor(private productService: ProductsService, private routeService: ActivatedRoute, fb:FormBuilder){
+
+  constructor(private productService: ProductsService, private routeService: ActivatedRoute, fb: FormBuilder, private cartService: ShoppingCartService) {
     //Filter Form
     this.filterForm = fb.group({
       grade_number: ['', Validators.required],
@@ -39,47 +45,13 @@ export class ShopComponent {
     });
 
 
+    ///GRID SECTION
     //Get Products to Show on the Shop Grid
     productService.getProducts().subscribe({
-      next: (results)=>{
-        this.products= results;
+      next: (results) => {
+        this.products = results;
       },
-      error: (err)=>{
-        console.log(err);
-      }
-    });
-
-
-    //Get Subjects for filter section
-    productService.getSubject().subscribe({
-      next: (results)=>{
-        this.subjects = results;
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    });
-
-
-
-    //Get product grade for filter section
-    productService.getGrade().subscribe({
-      next: (results)=> {
-        this.grades = results;
-        console.log(this.grades)
-      }, 
       error: (err) => {
-        console.log(err);
-      }
-    });
-    
-
-    //Get Types to show in filter section
-    productService.getType().subscribe({
-      next: (results)=>{
-        this.types=results;
-      },
-      error: (err)=>{
         console.log(err);
       }
     });
@@ -89,38 +61,94 @@ export class ShopComponent {
     let id = parseInt(productId!);
 
     productService.getProduct(id).subscribe({
-      next: (result)=>{
+      next: (result) => {
         this.product = result;
         console.log(this.product);
       },
-      error: (err)=>{
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+    ///FILTER SECTION
+    //Get Subjects for filter section
+    productService.getSubject().subscribe({
+      next: (results) => {
+        this.subjects = results;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+
+    //Get product grade for filter section
+    productService.getGrade().subscribe({
+      next: (results) => {
+        this.grades = results;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+
+    //Get Types to show in filter section
+    productService.getType().subscribe({
+      next: (results) => {
+        this.types = results;
+      },
+      error: (err) => {
         console.log(err);
       }
     });
 
   }
 
-  onClick(){
+  onClick() {
     this.productService.getProducts(this.filterForm.value).subscribe({
-      next: (results)=>{
+      next: (results) => {
         this.products = results;
       },
-      error: (err)=>{
+      error: (err) => {
         console.log(err);
       }
     })
   }
 
+  //Add product to cart
+  addToCart(product: Iproduct){
+    console.log(product)
+
+    if(!this.cartService.productsInCart(product)){
+      product.quantity = 1;
+      this.cartService.addToCart(product);
+      this.productsList = [...this.cartService.getItems()];
+      this.subTotal = product.price;
+      window.alert('Your product has been added to the cart!');
+
+    }
+  }
+
+    //Change sub total amount
+    changeSubTotal(product: Iproduct){
+      const qty = product.quantity;
+      const amt = product.price;
+      this.subTotal = amt * qty;  
+      this.cartService.saveCart();
+    }
+
   //Getters for filterForm
-  get grade(){
+  get grade() {
     return this.filterForm.get('grade')!;
   }
 
-  get subject(){
+  get subject() {
     return this.filterForm.get('subject')!;
   }
 
-  get type(){
+  get type() {
     return this.filterForm.get('type')!;
   }
 }
+

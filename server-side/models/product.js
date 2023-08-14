@@ -42,6 +42,10 @@ const Product = config.define('product', {
     price : {
         type: Sequelize.FLOAT,
         allowNull: false,
+    },
+    quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
     }
 
 }, {timestamps: false});

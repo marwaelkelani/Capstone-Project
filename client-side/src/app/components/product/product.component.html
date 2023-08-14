@@ -77,15 +77,13 @@
 
       <!-- Incrementor -->
       <div class="text-center">
-        <button type="button">-</button>
-        <input type="number">
-        <button type="button">+</button>
+        <!-- <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product, i)" type="number" min="1">
+        <h6>SubTotal: {{product.price | currency}}</h6> -->
       </div>
 
       <!-- Buttons -->
       <div class="text-center mt-4">
-        <button type="button" class="btn btn-primary mx-4" (click)="onClick()">Add to Cart</button>
-        <button type="button" class="btn btn-success mx-4" (click)="addToCart(product)">Buy</button>
+        <button type="button" class="btn btn-success mx-4" (click)="addToCart(product)">Add to Cart</button>
         <button type="button" class="btn btn-warning mx-4" (click)="returnToShop()">Return to Shop</button>
       </div>
 

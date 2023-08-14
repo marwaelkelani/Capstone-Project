@@ -1,5 +1,5 @@
 <!-- Sale Bar -->
-<div class="sale p-3 text-white">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div>
+<!-- <div class="sale p-3 text-white">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div> -->
 
 <!-- Nav Bar -->
 
@@ -33,8 +33,21 @@
         </li>
       </ul>
     </div>
-    <button class="btn btn-danger" routerLink="/cart">Checkout</button>
-  </div>
+    <div class="sale p-3 me-5">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div>
+
+    <button class="btn btn-primary position-relative" routerLink="/cart"> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" [matMenuTriggerFor]="menu">
+      2 <span class="visually-hidden">unread messages</span>
+    </span><mat-icon>shopping_cart</mat-icon>
+  </button>
+    <mat-menu #menu="matMenu">
+      <div class="p-3">
+        <div>
+          <span>1 item</span>
+          <a routerLink="/cart">View Cart</a>
+        </div>
+      </div>
+    </mat-menu>
+  </div> 
 </nav>
 
 <!-- SubNav -->

@@ -5,13 +5,6 @@
             <h2 class="text-center" id="filter-title">Filter</h2>
             <div class="row">
                 <form class="col-6 offset-1" [formGroup]="filterForm">
-                    <!-- <h4>Price</h4>
-                    <input type="checkbox"> Less than $5 <br>
-                    <input type="checkbox"> $5 - $10 <br>
-                    <input type="checkbox"> $11 - $20 <br>
-                    <input type="checkbox"> $20 - $50 <br>
-                    <input type="checkbox"> $50 or more <br><br> -->
-
                     <h4>Grade</h4>
                     <input type="radio" name="grade" value="6" formControlName="grade_number"> Grade 6 <br>
                     <input type="radio" name="grade" value="7" formControlName="grade_number"> Grade 7 <br>
@@ -24,11 +17,6 @@
                         <option *ngFor="let subject of subjects" [value]="subject.subject_name">{{subject.subject_name}}</option>
                     </select> <br><br>
 
-                    <!-- <h4>Subject</h4>
-                    <input type="checkbox"> Math <br>
-                    <input type="checkbox"> Science <br>
-                    <input type="checkbox"> Art <br>
-                    <input type="checkbox"> Technology <br><br> -->
 
                     <h4>Type</h4>
                     <select name="type"  formControlName="type_name">
@@ -47,19 +35,22 @@
     <div class="col-9" id="product-grid">
         <h1 class="text-center m-4">Shop Resources</h1>
         <div class="row px-5">
-            <div class="col-4" *ngFor="let product of products">
+            <div class="col-4" *ngFor="let product of products; let i = index">
                 <!-- Product Card 1-->
                 <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
                     <a [routerLink]="['/products', product.id]"><img src="{{product.cover}}" class="card-img-top"
-                            alt="..."></a>
+                            alt="product image"></a>
                     <div class="card-body">
                         <h5 class="card-title text-center"><a
                                 [routerLink]="['/products', product.id]">{{product.name}}</a></h5>
-                        <p class="card-text text-center">{{product.price | currency }}</p>
-                        <p *ngFor="let g of grades"></p>
+                        <h5 class="card-text text-center">{{product.price | currency }}</h5>
+                        <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product)" type="number" min="1" value="1">
+                        <h6>SubTotal: {{product.quantity*product.price | currency}}</h6>
+                       <button type="button" class="btn btn-success col-12" (click)="addToCart(product)" (click)="addToCart(product)">Add to Cart</button>
                     </div>
                 </div>
             </div>
+            <mat-paginator [length]="20" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
         </div>
     </div>
 </div>

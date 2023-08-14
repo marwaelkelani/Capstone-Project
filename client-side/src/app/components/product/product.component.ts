@@ -24,6 +24,10 @@ export class ProductComponent {
   subjects!: Isubject[];
   types!: Itype[];
 
+  //Cart
+  productsList: Iproduct[] = [];
+  subTotal: any
+
   constructor(private route: ActivatedRoute, private productService: ProductsService, private routeService: ActivatedRoute, private router: Router, private cartService: ShoppingCartService) {
     productService.getProducts().subscribe({
       next: (results) => {
@@ -85,18 +89,27 @@ export class ProductComponent {
 
   }
 
-  onClick(){
-    this.router.navigateByUrl('/checkout'); 
-  }
-
   returnToShop(){
     this.router.navigateByUrl('/shop'); 
   }
 
   //Cart Functions
+  // addToCart(product: Iproduct){
+  //   this.cartService.addToCart(product);
+  //   window.alert('Your product has been added to the cart!');
+  // }
+
   addToCart(product: Iproduct){
-    this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
+    console.log(product)
+
+    if(!this.cartService.productsInCart(product)){
+      product.quantity = 1;
+      this.cartService.addToCart(product);
+      this.productsList = [...this.cartService.getItems()];
+      this.subTotal = product.price;
+      window.alert('Your product has been added to the cart!');
+
+    }
   }
 
 }
