@@ -6,9 +6,9 @@
             <div class="row">
                 <form class="col-6 offset-1" [formGroup]="filterForm">
                     <h4>Grade</h4>
-                    <input type="radio" name="grade" value="6" formControlName="grade_number"> Grade 6 <br>
-                    <input type="radio" name="grade" value="7" formControlName="grade_number"> Grade 7 <br>
-                    <input type="radio" name="grade" value="8" formControlName="grade_number"> Grade 8 <br>
+                    <input type="radio" name="grade_number" value="6" formControlName="grade_number"> Grade 6 <br>
+                    <input type="radio" name="grade_number" value="7" formControlName="grade_number"> Grade 7 <br>
+                    <input type="radio" name="grade_number" value="8" formControlName="grade_number"> Grade 8 <br>
                     <br>
 
                     <h4>Subjects</h4>
@@ -46,7 +46,7 @@
                         <h5 class="card-text text-center">{{product.price | currency }}</h5>
                         <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product)" type="number" min="1" value="1" placeholder="Quantity">
                         <h6>SubTotal: {{product.quantity*product.price | currency}}</h6>
-                       <button type="button" class="btn btn-success col-12" (click)="addToCart(product)" (click)="addToCart(product)">Add to Cart</button>
+                       <button type="button" class="btn btn-primary col-12" (click)="addToCart(product)" (click)="addToCart(product)">Add to Cart</button>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class ShoppingCartComponent {
   products:Iproduct[] = this.cartService.getItems();
+  subTotal!: number;
 
   constructor(private cartService: ShoppingCartService, private router: Router){
 
@@ -46,4 +47,13 @@ export class ShoppingCartComponent {
       {quantity: 1, price: 0}
     ).price
   }
+
+     //Change sub total amount
+     changeSubTotal(product: Iproduct){
+      const qty = product.quantity;
+      const amt = product.price;
+      this.subTotal = amt * qty;  
+      // product.price = this.subTotal
+      this.cartService.saveCart();
+    }
 }

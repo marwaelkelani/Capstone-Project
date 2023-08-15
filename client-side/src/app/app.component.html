@@ -25,27 +25,57 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="/shop">Shop Here</a></li>
-            <li><a class="dropdown-item" href="https://www.teacherspayteachers.com/Store/Steam-Vault" target="_blank">Shop TPT</a></li>
+            <li><a class="dropdown-item" href="https://www.teacherspayteachers.com/Store/Steam-Vault"
+                target="_blank">Shop TPT</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLinkActive="active">Log In</a>
         </li>
       </ul>
     </div>
     <div class="sale p-3 me-5">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div>
 
-    <button class="btn btn-primary position-relative" routerLink="/cart" (click)="getItems()"> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      *<span class="visually-hidden">unread messages</span>
-    </span><mat-icon>shopping_cart</mat-icon>
-  </button>
-  </div> 
+    <button class="btn btn-primary position-relative" routerLink="/cart" (click)="getItems()"> <span
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        *<span class="visually-hidden">unread messages</span>
+      </span><mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
 </nav>
 
+<!-- SubNav -->
+<!-- <div class="align">
+  <img [src]="banner" id="banner">
+  <div id="subnav" class="p-1 mt-3">
+    <div><img [src]="math" class="widget">
+      <p>Math</p>
+    </div>
+    <div><img [src]="science" class="widget">
+      <p>Science</p>
+    </div>
+    <div><img [src]="art" class="widget">
+      <p>Art</p>
+    </div>
+    <div><img [src]="tech" class="widget">
+      <p>Tech</p>
+    </div>
+  </div>
+</div> -->
 <!-- SubNav -->
 <div class="align">
   <img [src]="banner" id="banner">
   <div id="subnav" class="p-1 mt-3">
+    <ul class="dropdown">
+      <li class="listnav mx-5"><a class="navlink" routerLink="/">Home</a></li>
+      <li class="listnav mx-5"><a class="navlink" routerLink="/about">About</a></li>
+      <!-- dropdown shop -->
+      <li class="listnav mx-5 nav-item dropdown"><a class="navlink dropdown-toggle" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/shop" class="dropdown-item">Shop Here</a></li>
+          <li><a href="https://www.teacherspayteachers.com/Store/Steam-Vault" target="_blank" class="dropdown-item">Shop
+              on TPT</a></li>
+        </ul>
+      </li>
+    </ul>
     <div><img [src]="math" class="widget">
       <p>Math</p>
     </div>
@@ -65,18 +95,17 @@
 
 
 
-   <!-- Footer -->
+<!-- Footer -->
 
 <footer class="text-center text-lg-start text-dark" style="background-color: white">
   <!-- Section: Social media -->
-  <section
-           class="d-flex justify-content-between p-4 text-black" style="background-color: #f7cd37">
+  <section class="d-flex justify-content-between p-4 text-black" style="background-color: #f7cd37">
     <!-- Left -->
     <div class="me-5">
       <span>Get connected with us on social networks:</span>
     </div>
     <!-- Left -->
-  
+
     <!-- Right -->
     <div>
       <a href="#" class="text-black me-4">
@@ -95,7 +124,7 @@
     <!-- Right -->
   </section>
   <!-- Section: Social media -->
-  
+
   <!-- Section: Links  -->
   <section class="links">
     <div class="container text-center text-md-start mt-5">
@@ -105,24 +134,18 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold">STEAM Vault</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p class="footer">
             Subscribe to our email list and stay updated. Join our email newsletter for exclusive offers.
           </p>
         </div>
         <!-- Grid column -->
-  
+
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold">Products</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p class="footer">
             <a href="#!" class="text-dark">Ontario Curriculum</a>
           </p>
@@ -134,15 +157,12 @@
           </p>
         </div>
         <!-- Grid column -->
-  
+
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold">Useful links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p class="footer">
             <a href="#!" class="text-dark">Blog</a>
           </p>
@@ -151,15 +171,12 @@
           </p>
         </div>
         <!-- Grid column -->
-  
+
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold">Contact</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p class="footer"><i class="fas fa-envelope mr-3"></i> steamvault@gmail.com</p>
         </div>
         <!-- Grid column -->
@@ -168,13 +185,11 @@
     </div>
   </section>
   <!-- Section: Links  -->
-  
+
   <!-- Copyright -->
-  <div
-       class="text-center p-3" style="background-color: #f7cd37">
+  <div class="text-center p-3" style="background-color: #f7cd37">
     © 2023 Copyright: STEAM Vault
   </div>
   <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
-   
+</footer>
+<!-- Footer -->
