@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Iproduct } from 'src/app/interfaces/iproduct';
@@ -20,18 +19,13 @@ export class ShoppingCartComponent {
     this.cartService.loadCart();
   }
 
-  
-
+  //Clear items from the cart
   clearCart(){
     this.cartService.clearCart();
     return this.products = this.cartService.getItems();
   }
 
-  onClick(){
-    this.router.navigateByUrl('/checkout'); 
-  }
-
-  //Remove product from cart
+  //Remove a product from the cart
   removeFromCart(product:any){
     this.cartService.removeProduct(product);
     return this.products = this.cartService.getItems();
@@ -53,7 +47,12 @@ export class ShoppingCartComponent {
       const qty = product.quantity;
       const amt = product.price;
       this.subTotal = amt * qty;  
-      // product.price = this.subTotal
       this.cartService.saveCart();
+    }
+
+    //Checkout
+    checkout(){
+      localStorage.setItem('cart_total', JSON.stringify(this.total));
+      this.router.navigate(['/checkout']);
     }
 }

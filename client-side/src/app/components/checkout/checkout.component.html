@@ -1,6 +1,9 @@
 <div class="row mt-5 mb-5">
     <h1 class="text-center">Checkout</h1>
-    <div class="form col-6 offset-3">
+    <div class="row">
+
+      <!-- Checkout Form -->
+    <div class="form col-8 offset-1">
       
         <form [formGroup]="checkoutForm">
             <h3>Contact Information</h3>
@@ -57,5 +60,18 @@
           </form>
     </div>
 
-
+    <!-- Order Summary -->
+    <div class="col-3 ordersummary">
+      <h4 class="text-center my-4">Order Summary</h4>
+      <div class="flex-container">
+        <h5>Subtotal</h5>
+        <p>{{cartTotal | currency }}</p>
+      </div>
+      <hr>
+      <div class="flex-container">
+        <h5>TOTAL</h5>
+        <p>{{cartTotal | currency }}</p>
+      </div>
+    </div>
+    </div>
 </div>

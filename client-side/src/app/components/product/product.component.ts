@@ -100,8 +100,6 @@ export class ProductComponent {
   // }
 
   addToCart(product: Iproduct){
-    console.log(product)
-
     if(!this.cartService.productsInCart(product)){
       product.quantity = 1;
       this.cartService.addToCart(product);

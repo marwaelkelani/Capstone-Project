@@ -44,13 +44,13 @@
                         <h5 class="card-title text-center"><a
                                 [routerLink]="['/products', product.id]">{{product.name}}</a></h5>
                         <h5 class="card-text text-center">{{product.price | currency }}</h5>
-                        <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product)" type="number" min="1" value="1" placeholder="Quantity">
+                        <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product,i)" type="number" min="1" name="" placeholder="Quantity">
                         <h6>SubTotal: {{product.quantity*product.price | currency}}</h6>
-                       <button type="button" class="btn btn-primary col-12" (click)="addToCart(product)" (click)="addToCart(product)">Add to Cart</button>
+                       <button type="button" class="btn btn-primary col-12" (click)="addToCart(product)">Add to Cart</button>
                     </div>
                 </div>
             </div>
-            <mat-paginator [length]="20" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
+            <mat-paginator [length]="20" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
         </div>
     </div>
 </div>

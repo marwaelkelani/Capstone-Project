@@ -45,7 +45,7 @@ const Product = config.define('product', {
     },
     quantity: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        allowNull: false,
     }
 
 }, {timestamps: false});

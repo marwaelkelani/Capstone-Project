@@ -9,7 +9,7 @@
             <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
+            <th scope="col">Subtotal</th>
             <th scope="col">Remove Product</th>
           </tr>
         </thead>
@@ -18,7 +18,7 @@
             <th scope="row">{{product.id}}</th>
             <td>{{product.name}}</td>
             <td>{{product.quantity}}</td>
-            <td>{{product.price | currency}}</td>
+            <td>{{product.price * product.quantity | currency}}</td>
             <td><button type="button" class="btn btn-primary" (click)="removeFromCart(product)">Remove Product</button></td>
           </tr>
         </tbody>
@@ -27,7 +27,7 @@
         </tr>
       </table>
 
-    <button type="button" class="btn btn-primary mx-4" (click)="onClick()">Proceed to Checkout</button>
+    <button type="button" class="btn btn-primary mx-4" (click)="checkout()">Proceed to Checkout</button>
     <button type="button" class="btn btn-danger mx-4" (click)="clearCart()">Clear Cart</button>
     
 </div>

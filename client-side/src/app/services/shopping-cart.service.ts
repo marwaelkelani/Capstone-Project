@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Iproduct } from '../interfaces/iproduct';
-import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,8 @@ export class ShoppingCartService {
 products: Iproduct[] = [];
   constructor(private http: HttpClient) { }
 
-  addToCart(product: Iproduct){
-    this.products.push(product);
+  addToCart(addedProduct: Iproduct){
+    this.products.push(addedProduct);
     this.saveCart();
   }
   
@@ -34,7 +34,7 @@ products: Iproduct[] = [];
     this.products = JSON.parse(localStorage.getItem('cart_items') as any) || [];
   }
 
-  productsInCart(product: any){
+  productsInCart(product: Iproduct): boolean{
     return this.products.findIndex((x:any)=> x.id === product.id) > -1
   }
 

@@ -32,8 +32,9 @@ export class ShopComponent {
   technology!: Isubject
 
   //Cart
-  productsList: Iproduct[] = [];
-  subTotal!: any
+  productsList: any[] = [];
+  subTotal!: any;
+  subAmount!: any;
 
 
   constructor(private productService: ProductsService, private routeService: ActivatedRoute, fb: FormBuilder, private cartService: ShoppingCartService) {
@@ -116,31 +117,9 @@ export class ShopComponent {
     })
   }
 
-  //Add product to cart
-  addToCart(product: Iproduct){
-    console.log(product)
 
-    if(!this.cartService.productsInCart(product)){
-      product.quantity = 1;
-      this.cartService.addToCart(product);
-      this.productsList = [...this.cartService.getItems()];
-      this.subTotal = product.price;
-      window.alert('Your product has been added to the cart!');
-
-    }
-  }
-
-    //Change sub total amount
-    changeSubTotal(product: Iproduct){
-      const qty = product.quantity;
-      const amt = product.price;
-      this.subTotal = amt * qty;  
-      // product.price = this.subTotal
-      this.cartService.saveCart();
-    }
-
-  //Getters for filterForm
-  get grade() {
+   //Getters for filterForm
+   get grade() {
     return this.filterForm.get('grade')!;
   }
 
@@ -151,5 +130,44 @@ export class ShopComponent {
   get type() {
     return this.filterForm.get('type')!;
   }
+  //SHOPPING CART 
+  ///Add product to cart
+
+  ngOnInit(){
+    this.cartService.getAllProducts().subscribe({
+      next: (results: any)=>{
+        console.log(results);
+        this.productsList = results;
+      }, 
+      error: (err)=>{
+        alert(err);
+      }
+    });
+
+    this.cartService.loadCart();
+    this.products = this.cartService.getItems();
+}
+
+  addToCart(product: Iproduct){
+    console.log(product)
+    window.alert('Your product has been added to the cart!');
+
+    if(!this.cartService.productsInCart(product)){
+      // product.quantity = 1;
+      this.cartService.addToCart(product);
+      this.productsList = [...this.cartService.getItems()];
+      this.subTotal = product.price;
+    }
+  }
+
+    //Change sub total amount
+    changeSubTotal(product: Iproduct, index: any){
+      const qty = product.quantity;
+      const amt = product.price;
+      this.subTotal = amt * qty;  
+      this.cartService.saveCart();
+    }
+
+ 
 }
 

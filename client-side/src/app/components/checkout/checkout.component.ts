@@ -10,6 +10,9 @@ export class CheckoutComponent {
 checkoutForm!: FormGroup
 redColor = 'red';
 
+//Checkout
+cartTotal!: any;
+
   constructor(private fb: FormBuilder){
     this.checkoutForm = fb.group({
       first_name: ['', [Validators.required]],
@@ -27,7 +30,11 @@ redColor = 'red';
     console.log(this.checkoutForm.value);
   }
 
-  //Submit Function goes here
+  
+  ngOnInit(){
+    this.cartTotal = JSON.parse(localStorage.getItem('cart_total') as any) || [];
+    console.log(this.cartTotal);
+  }
 
   //Getters for Checkout Form
 
