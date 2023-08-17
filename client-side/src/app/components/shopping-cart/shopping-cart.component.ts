@@ -23,6 +23,8 @@ export class ShoppingCartComponent {
   clearCart(){
     this.cartService.clearCart();
     return this.products = this.cartService.getItems();
+    
+  
   }
 
   //Remove a product from the cart

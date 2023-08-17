@@ -7,6 +7,7 @@ import { Itype } from 'src/app/interfaces/itype';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   selector: 'app-product',
@@ -101,13 +102,26 @@ export class ProductComponent {
 
   addToCart(product: Iproduct){
     if(!this.cartService.productsInCart(product)){
-      product.quantity = 1;
       this.cartService.addToCart(product);
       this.productsList = [...this.cartService.getItems()];
       this.subTotal = product.price;
       window.alert('Your product has been added to the cart!');
 
     }
+  }
+
+  inc(product: Iproduct){
+    // console.log(product.quantity)
+    product.quantity += 1;
+  }
+
+  dec(product: Iproduct){
+    // console.log(product.quantity);
+
+    if(product.quantity !=1 ){
+      product.quantity -= 1;
+    }
+    
   }
 
 }

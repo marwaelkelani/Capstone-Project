@@ -13,8 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -34,8 +32,7 @@ import {MatMenuModule} from '@angular/material/menu';
     HttpClientModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    MatIconModule,
-    MatMenuModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

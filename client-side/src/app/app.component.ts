@@ -16,6 +16,10 @@ export class AppComponent {
   tech= './assets/tech.png';
   products: Iproduct[]
 
+
+  //shopping cart icon
+
+
   constructor(private cartService: ShoppingCartService){
     this.products = this.cartService.getItems();
 
@@ -26,5 +30,6 @@ export class AppComponent {
     this.cartService.loadCart();
     return this.products = this.cartService.getItems();
   }
+
 
 }

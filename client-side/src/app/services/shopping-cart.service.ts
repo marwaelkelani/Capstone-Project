@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Iproduct } from '../interfaces/iproduct';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
-products: Iproduct[] = [];
-  constructor(private http: HttpClient) { }
+
+//shopping cart properties
+  products: Iproduct[] = [];
+
+//shopping cart icon property
+totalItems!: BehaviorSubject<number>
+
+  constructor(private http: HttpClient) { 
+
+    this.totalItems = new BehaviorSubject<number>(0);
+  }
+
+ 
+
+  //Shopping Cart methods
 
   addToCart(addedProduct: Iproduct){
     this.products.push(addedProduct);
