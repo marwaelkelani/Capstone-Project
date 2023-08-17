@@ -11,6 +11,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ShoppingCartComponent {
   products:Iproduct[] = this.cartService.getItems();
   subTotal!: number;
+  cartValue!: any;
 
   constructor(private cartService: ShoppingCartService, private router: Router){
 
@@ -31,6 +32,7 @@ export class ShoppingCartComponent {
   //Remove a product from the cart
   removeFromCart(product:any){
     this.cartService.removeProduct(product);
+    this.cartNumberFunc()
     return this.products = this.cartService.getItems();
   }
 
@@ -75,5 +77,13 @@ export class ShoppingCartComponent {
       
     }
 
+  
+      //Cart Number Update
+      cartNumber: number = 0;
+      cartNumberFunc(){
+        this.cartValue = JSON.parse(localStorage.getItem('cart_items') as any);
+        this.cartNumber = this.cartValue.length;
+        this.cartService.cartSubject.next(this.cartNumber);
+      }
   
 }
