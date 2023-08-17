@@ -28,6 +28,7 @@ export class ProductComponent {
   //Cart
   productsList: Iproduct[] = [];
   subTotal: any
+  cartValue!: any;
 
   constructor(private route: ActivatedRoute, private productService: ProductsService, private routeService: ActivatedRoute, private router: Router, private cartService: ShoppingCartService) {
     productService.getProducts().subscribe({
@@ -106,7 +107,7 @@ export class ProductComponent {
       this.productsList = [...this.cartService.getItems()];
       this.subTotal = product.price;
       window.alert('Your product has been added to the cart!');
-
+      this.cartNumberFunc()
     }
   }
 
@@ -123,5 +124,13 @@ export class ProductComponent {
     }
     
   }
+
+   //Cart Number Update
+   cartNumber: number = 0;
+   cartNumberFunc(){
+     this.cartValue = JSON.parse(localStorage.getItem('cart_items') as any);
+     this.cartNumber = this.cartValue.length;
+     this.cartService.cartSubject.next(this.cartNumber);
+   }
 
 }
