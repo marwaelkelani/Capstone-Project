@@ -3,6 +3,7 @@
 <h3>Your Orders</h3>
 
 <div class="cart-total">
+  <div *ngIf="products">
     <table class="table">
         <thead>
           <tr>
@@ -31,7 +32,7 @@
           <th><h4>Total Price: {{total | currency }}</h4></th>
         </tr>
       </table>
-
+    </div>
     <button type="button" class="btn btn-primary mx-4" (click)="checkout()">Proceed to Checkout</button>
     <button type="button" class="btn btn-danger mx-4" (click)="clearCart()">Clear Cart</button>
     

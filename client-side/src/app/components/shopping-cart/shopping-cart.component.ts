@@ -13,6 +13,7 @@ export class ShoppingCartComponent {
   subTotal!: number;
   cartValue!: any;
 
+
   constructor(private cartService: ShoppingCartService, private router: Router){
 
     this.products = this.cartService.getItems();
@@ -21,12 +22,21 @@ export class ShoppingCartComponent {
   }
 
   //Clear items from the cart
-  clearCart(){
-    this.cartService.clearCart();
-    alert('All items have been removed from the shopping cart.')
-    // return this.products = this.cartService.getItems();
+  // clearCart(){
+  //   this.cartService.clearCart();
+  //   this.cartNumberFunc();
+  //   this.products = [];
+  //   alert('All items have been removed from the shopping cart.')
+  //   // return this.products = this.cartService.getItems();
     
-  
+  // }
+
+  clearCart(){
+    localStorage.removeItem('cart_items');
+    this.products = [];
+    this.cartNumberFunc();
+    alert('All items have been removed from the shopping cart.')
+    return this.products = this.cartService.getItems();
   }
 
   //Remove a product from the cart
