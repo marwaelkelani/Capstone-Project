@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Iproduct } from '../interfaces/iproduct';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,8 @@ export class ShoppingCartService {
   products: Iproduct[] = [];
 
 //shopping cart icon property
-totalItems!: BehaviorSubject<number>
 
   constructor(private http: HttpClient) { 
-
-    this.totalItems = new BehaviorSubject<number>(0);
   }
 
  
@@ -46,6 +44,7 @@ totalItems!: BehaviorSubject<number>
 
   loadCart(){
     this.products = JSON.parse(localStorage.getItem('cart_items') as any) || [];
+    console.log(this.products)
   }
 
   productsInCart(product: Iproduct): boolean{
@@ -60,5 +59,8 @@ totalItems!: BehaviorSubject<number>
       this.saveCart();
     }
   }
+
+    //Update shopping cart icon number
+    cartSubject = new Subject<any>();
  
 }

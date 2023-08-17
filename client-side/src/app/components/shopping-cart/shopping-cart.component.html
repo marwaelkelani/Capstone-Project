@@ -7,19 +7,24 @@
         <thead>
           <tr>
             <th scope="col">Product Id</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Remove Product</th>
+            <th scope="col" class="text-center">Product Name</th>
+            <th scope="col" class="text-center">Quantity</th>
+            <th scope="col" class="text-center">Subtotal</th>
+            <th scope="col" class="text-center">Remove Product</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of products">
             <th scope="row">{{product.id}}</th>
-            <td>{{product.name}}</td>
-            <td>{{product.quantity}}</td>
-            <td>{{product.price * product.quantity | currency}}</td>
-            <td><button type="button" class="btn btn-primary" (click)="removeFromCart(product)">Remove Product</button></td>
+            <td class="text-center">{{product.name}}</td>
+            <td class="text-center">
+              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
+              <span class="product mx-3">{{product.quantity}}</span>
+              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
+              
+            </td>
+            <td class="text-center">{{product.price * product.quantity | currency}}</td>
+            <td class="text-center"><button type="button" class="btn btn-primary" (click)="removeFromCart(product)">Remove Product</button></td>
           </tr>
         </tbody>
         <tr>

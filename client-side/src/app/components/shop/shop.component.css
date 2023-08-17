@@ -9,6 +9,10 @@
     margin-left: auto;
 }
 
+.qty-btn:hover{
+    background-color: green;
+}
+
 /* #product-grid {
     border: 2px solid black;
 } */

@@ -7,3 +7,7 @@
     border: 1px solid black;
     padding: 20px;
 }
+
+.qty-btn:hover{
+    background-color: green;
+}

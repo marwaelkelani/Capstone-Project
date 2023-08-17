@@ -14,12 +14,13 @@
                     <h4>Subjects</h4>
                     <select name="subject" formControlName="subject_name">
                         <option selected disabled>Choose a Subject</option>
-                        <option *ngFor="let subject of subjects" [value]="subject.subject_name">{{subject.subject_name}}</option>
+                        <option *ngFor="let subject of subjects" [value]="subject.subject_name">{{subject.subject_name}}
+                        </option>
                     </select> <br><br>
 
 
                     <h4>Type</h4>
-                    <select name="type"  formControlName="type_name">
+                    <select name="type" formControlName="type_name">
                         <option selected disabled>Choose a product type</option>
                         <option *ngFor="let type of types" [value]="type.type_name">{{type.type_name}}</option>
                     </select> <br><br>
@@ -43,14 +44,27 @@
                     <div class="card-body">
                         <h5 class="card-title text-center"><a
                                 [routerLink]="['/products', product.id]">{{product.name}}</a></h5>
-                        <h5 class="card-text text-center">{{product.price | currency }}</h5>
-                        <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" (change)="changeSubTotal(product,i)" type="number" min="1" name="" placeholder="Quantity">
-                        <h6>SubTotal: {{product.quantity*product.price | currency}}</h6>
-                       <button type="button" class="btn btn-primary col-12" (click)="addToCart(product)">Add to Cart</button>
+                        <h5 class="card-text text-center">{{product.price* product.quantity | currency }}</h5>
+
+                        <!-- Incrementor -->
+                        <div class="text-center">
+                            <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i
+                                        class="fa-solid fa-minus"></i></button></span>
+                            <span class="product mx-3">{{product.quantity}}</span>
+                            <!-- <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" type="number" min="1"> -->
+                            <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i
+                                        class="fa-solid fa-plus"></i></button></span>
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-primary col-12 mt-3" (click)="addToCart(product)">Add to
+                            Cart</button>
                     </div>
                 </div>
             </div>
-            <mat-paginator [length]="20" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
+            <mat-paginator [length]="20" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page"></mat-paginator>
         </div>
     </div>
 </div>

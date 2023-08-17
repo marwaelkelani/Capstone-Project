@@ -35,6 +35,8 @@ export class ShopComponent {
   productsList: any[] = [];
   subTotal!: any;
   subAmount!: any;
+  cartValue!: any;
+
 
 
   constructor(private productService: ProductsService, private routeService: ActivatedRoute, fb: FormBuilder, private cartService: ShoppingCartService) {
@@ -149,16 +151,24 @@ export class ShopComponent {
 }
 
   addToCart(product: Iproduct){
-    console.log(product)
+    // console.log(product)
     window.alert('Your product has been added to the cart!');
 
     if(!this.cartService.productsInCart(product)){
-      // product.quantity = 1;
       this.cartService.addToCart(product);
       this.productsList = [...this.cartService.getItems()];
       this.subTotal = product.price;
     }
+    this.cartNumberFunc()
   }
+
+    //Cart Number Update
+    cartNumber: number = 0;
+    cartNumberFunc(){
+      this.cartValue = JSON.parse(localStorage.getItem('cart_items') as any);
+      this.cartNumber = this.cartValue.length;
+      this.cartService.cartSubject.next(this.cartNumber);
+    }
 
     //Change sub total amount
     changeSubTotal(product: Iproduct, index: any){
@@ -166,6 +176,23 @@ export class ShopComponent {
       const amt = product.price;
       this.subTotal = amt * qty;  
       this.cartService.saveCart();
+    }
+
+
+    
+    //Incrementor Methods
+    inc(product: Iproduct){
+      // console.log(product.quantity)
+      product.quantity += 1;
+    }
+  
+    dec(product: Iproduct){
+      // console.log(product.quantity);
+  
+      if(product.quantity !=1 ){
+        product.quantity -= 1;
+      }
+      
     }
 
  

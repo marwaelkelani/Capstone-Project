@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Iproduct } from 'src/app/interfaces/iproduct';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -22,7 +22,8 @@ export class ShoppingCartComponent {
   //Clear items from the cart
   clearCart(){
     this.cartService.clearCart();
-    return this.products = this.cartService.getItems();
+    alert('All items have been removed from the shopping cart.')
+    // return this.products = this.cartService.getItems();
     
   
   }
@@ -57,4 +58,22 @@ export class ShoppingCartComponent {
       localStorage.setItem('cart_total', JSON.stringify(this.total));
       this.router.navigate(['/checkout']);
     }
+
+
+    //Incrementor Methods
+    inc(product: Iproduct){
+      // console.log(product.quantity)
+      product.quantity += 1;
+    }
+  
+    dec(product: Iproduct){
+      // console.log(product.quantity);
+  
+      if(product.quantity !=1 ){
+        product.quantity -= 1;
+      }
+      
+    }
+
+  
 }

@@ -41,7 +41,8 @@
     <!-- Product Info on the Left -->
     <div class="col-4 product-info p-4">
       <h1>{{product.name}}</h1>
-      <h3>{{product.price | currency}}</h3>
+      <h3>{{product.quantity*product.price | currency}}</h3>
+      
       <div id="tags">
         <p class="tag m-2" *ngFor="let grades of product.grades">Grade {{grades.grade_number | json}}</p>
         <p class="tag m-2" *ngFor="let subjects of product.subjects">{{subjects.subject_name}}</p>
@@ -77,10 +78,11 @@
 
       <!-- Incrementor -->
       <div class="text-center">
-        <button class="btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button>
-        <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" type="number" min="1">
-        <button class="btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button>
-        <h6>SubTotal: {{product.quantity*product.price | currency}}</h6>
+        <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
+        <span class="product mx-3">{{product.quantity}}</span>
+        <!-- <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" type="number" min="1"> -->
+        <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
+        <!-- <h6>SubTotal: {{product.quantity*product.price | currency}}</h6> -->
       </div>
 
       <!-- Buttons -->

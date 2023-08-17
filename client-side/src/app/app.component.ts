@@ -18,12 +18,19 @@ export class AppComponent {
 
 
   //shopping cart icon
-
+  cartItems: number = 0;
 
   constructor(private cartService: ShoppingCartService){
     this.products = this.cartService.getItems();
-
     this.cartService.loadCart();
+
+    this.cartService.cartSubject.subscribe((data)=>{
+      this.cartItems = data;
+    })
+  }
+
+  ngOnInit(): void {
+    this.cartItemFunc();
   }
 
   getItems(){
@@ -31,5 +38,13 @@ export class AppComponent {
     return this.products = this.cartService.getItems();
   }
 
+  cartItemFunc(){
+    if(localStorage.getItem('cart_items') != null){
+      var cartCount = JSON.parse(localStorage.getItem('cart_items') as any);
+      this.cartItems = cartCount.length;
+    }
+  }
+   
+  }
 
-}
+
