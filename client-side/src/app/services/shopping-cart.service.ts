@@ -44,7 +44,6 @@ export class ShoppingCartService {
 
   loadCart(){
     this.products = JSON.parse(localStorage.getItem('cart_items') as any) || [];
-    console.log(this.products)
   }
 
   productsInCart(product: Iproduct): boolean{

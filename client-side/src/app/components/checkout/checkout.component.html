@@ -61,8 +61,9 @@
     </div>
 
     <!-- Order Summary -->
-    <div class="col-3 ordersummary">
-      <h4 class="text-center my-4">Order Summary</h4>
+    <div class="col-3">
+    <div class="ordersummary p-4">
+      <h4 class="text-center">Order Summary</h4>
       <div class="flex-container">
         <h5>Subtotal</h5>
         <p>{{cartTotal | currency }}</p>
@@ -77,5 +78,6 @@
         <p>{{cartTotal * 1.13 | currency }}</p>
       </div>
     </div>
+  </div>
     </div>
 </div>

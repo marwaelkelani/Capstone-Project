@@ -152,7 +152,7 @@ export class ShopComponent {
 
   addToCart(product: Iproduct){
     // console.log(product)
-    window.alert('Your product has been added to the cart!');
+    window.alert('This product has been added to the cart!');
 
     if(!this.cartService.productsInCart(product)){
       this.cartService.addToCart(product);
