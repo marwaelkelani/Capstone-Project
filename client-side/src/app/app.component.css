@@ -1,8 +1,15 @@
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+}
+
 .sale {
-    color: #00509d;
     display: flex;
     justify-content: center;
+    color: #00509d;
     font-size: 18px;
+    background-color: #FBB0AE;
+    border-radius: 10px;
 }
 
 .active {
@@ -10,8 +17,8 @@
 }
 
 #banner {
-    width: 20%;
-    height: 30%;
+    width: 400px;
+    height: 100px;
 }
 
 .widget {
@@ -27,20 +34,21 @@ p {
 
 .align{
     display: flex;
-    justify-content: space-around;
-    /* border-bottom: 2px solid black; */
+    justify-content: space-between;
+    
 }
 
-#subnav {
-    display: flex;
-    justify-content: space-around;
-    width: 60vw;
-}
-
-.widget-list {
-    display: flex;
+#banner-flex{
+    display:flex;
     justify-content: center;
-    width: 40vw;
+}
+
+.widget-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer {
@@ -48,18 +56,27 @@ p {
 }
 
 /* New SubNav Bar */
-.dropdown{
+.dropdown-sidebar{
     list-style: none;
 }
 
-.navlink {
+.navlink-side {
     text-decoration: none;
     text-transform: uppercase;
+    color: #00509d;
     font-size: 20px;
-    color: #FA3F60;
     font-weight: bold;
 }
 
 .listnav {
     display: inline-block;
+}
+
+#side-banner {
+    width: 70%;
+}
+
+.social-icons{
+    border-radius: 10px;
+    background-color: #fbd294;
 }

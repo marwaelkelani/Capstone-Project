@@ -67,10 +67,14 @@
         <h5>Subtotal</h5>
         <p>{{cartTotal | currency }}</p>
       </div>
+      <div class="flex-container">
+      <h5>GST/HST</h5>
+      <p>{{cartTotal * 0.13 | currency }}</p>
+      </div>
       <hr>
       <div class="flex-container">
         <h5>TOTAL</h5>
-        <p>{{cartTotal | currency }}</p>
+        <p>{{cartTotal * 1.13 | currency }}</p>
       </div>
     </div>
     </div>

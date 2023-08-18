@@ -1,50 +1,72 @@
-<!-- Sale Bar -->
-<!-- <div class="sale p-3 text-white">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div> -->
-
-<!-- Nav Bar -->
-
-<nav class="navbar navbar-expand-lg" style="background-color: #f7cd37">
-  <div class="container-fluid">
-    <!-- <a class="navbar-brand" href="#">STEAM Vault</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-            routerLinkActive="active">
-            Shop
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/shop">Shop Here</a></li>
-            <li><a class="dropdown-item" href="https://www.teacherspayteachers.com/Store/Steam-Vault"
-                target="_blank">Shop TPT</a></li>
-          </ul>
-        </li>
-      </ul> -->
-    <!-- </div> -->
-    <div class="sale p-3 me-5">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div>
-
-    <button class="btn btn-primary position-relative" routerLink="/cart" (click)="getItems()"> <span
-        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{cartItems}}<span class="visually-hidden">unread messages</span>
-      </span><i class="fa-solid fa-cart-shopping"></i>
-    </button>
-  </div>
-</nav>
-
 <!-- SubNav -->
-<!-- <div class="align">
-  <img [src]="banner" id="banner">
-  <div id="subnav" class="p-1 mt-3">
-    <div><img [src]="math" class="widget">
+<div class="align row">
+
+  <!-- SideNav -->
+  <div class="col-1 p-4">
+    <div class="top-bar">
+      <button class="btn px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        <i class="fa-solid fa-bars fa-3x"></i></button>
+
+      <!-- Side Bar Toggled On -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <img id="side-banner" [src]="banner">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <ul class="dropdown-sidebar">
+              <li class="listnav-side my-3"><a class="navlink-side" routerLink="/"><i class="fa-solid fa-atom"></i>
+                  Home</a>
+              </li>
+              <li class="listnav-side my-3"><a class="navlink-side" routerLink="/about"><i
+                    class="fa-regular fa-envelope"></i>
+                  About</a></li>
+              <li class="listnav-side my-3"><a class="navlink-side" routerLink="/shop"><i
+                    class="fa-solid fa-bag-shopping"></i> Shop Here</a></li>
+              <li class="listnav-side my-3"><a class="navlink-side"
+                  href="https://www.teacherspayteachers.com/Store/Steam-Vault" target="_blank"><i
+                    class="fa-solid fa-cart-shopping"></i>
+                  Shop Teachers Pay Teachers</a></li>
+            </ul>
+          </div>
+
+          <!-- Sale -->
+          <div class="sale p-3">BACK TO SCHOOL SALE {{salePercent + ' OFF!'}}</div><br>
+      
+          <!-- Socials -->
+          <div class="socials p-1">
+            <p>Follow Us on Social Media!</p>
+            <div class="social-icons p-2">
+              <!-- Facebook -->
+              <div> <i class="fa-brands fa-facebook fa-2x"></i>  @steamvault</div>
+
+
+              <!-- Instagram -->
+              <div><i class="fa-brands fa-instagram fa-2x"></i>  @steamvault</div>
+           
+              <!-- Email -->
+              <div><i class="fa-solid fa-envelope fa-2x"></i> marwassteamvault@gmail.com</div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="col-9">
+    <a routerLink="/" id="banner-flex"><img [src]="banner" id="banner"></a>
+  </div>
+
+  <!-- Widgets -->
+  <div id="subnav" class="mt-3 col-1">
+    <!-- <div><img [src]="math" class="widget">
       <p>Math</p>
     </div>
     <div><img [src]="science" class="widget">
@@ -55,39 +77,30 @@
     </div>
     <div><img [src]="tech" class="widget">
       <p>Tech</p>
+    </div> -->
+
+    <!-- Cart -->
+    <div class="p-4">
+    <button class="btn position-relative" routerLink="/cart" (click)="getItems()"> <span
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{cartItems}}<span
+          class="visually-hidden">unread messages</span>
+      </span><i class="fa-solid fa-cart-shopping fa-2x"></i>
+    </button>
     </div>
   </div>
-</div> -->
-<!-- SubNav -->
-<div class="align">
-  <img [src]="banner" id="banner">
-  <div id="subnav" class="p-1 mt-3">
-    <ul class="dropdown">
-      <li class="listnav mx-5"><a class="navlink" routerLink="/">Home</a></li>
-      <li class="listnav mx-5"><a class="navlink" routerLink="/about">About</a></li>
-      <!-- dropdown shop -->
-      <li class="listnav mx-5 nav-item dropdown"><a class="navlink dropdown-toggle" role="button"
-          data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-        <ul class="dropdown-menu">
-          <li><a routerLink="/shop" class="dropdown-item">Shop Here</a></li>
-          <li><a href="https://www.teacherspayteachers.com/Store/Steam-Vault" target="_blank" class="dropdown-item">Shop
-              on TPT</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div><img [src]="math" class="widget">
-      <p>Math</p>
-    </div>
+
+</div>
+
+<div class="widget-bar">
+      <div><a routerLink="/shop"><img [src]="math" class="widget"></a>
+      <p>Shop</p>
+      </div>
     <div><img [src]="science" class="widget">
-      <p>Science</p>
-    </div>
-    <div><img [src]="art" class="widget">
-      <p>Art</p>
+      <p>Blog</p>
     </div>
     <div><img [src]="tech" class="widget">
-      <p>Tech</p>
+      <p>Tech Tips</p>
     </div>
-  </div>
 </div>
 
 <router-outlet></router-outlet>
@@ -98,7 +111,7 @@
 
 <footer class="text-center text-lg-start text-dark" style="background-color: white">
   <!-- Section: Social media -->
-  <section class="d-flex justify-content-between p-4 text-black" style="background-color: #f7cd37">
+  <section class="d-flex justify-content-between p-4 text-black" style="background-color: #FBB0AE">
     <!-- Left -->
     <div class="me-5">
       <span>Get connected with us on social networks:</span>
@@ -186,7 +199,7 @@
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: #f7cd37">
+  <div class="text-center p-3" style="background-color: #FBB0AE">
     © 2023 Copyright: STEAM Vault
   </div>
   <!-- Copyright -->
