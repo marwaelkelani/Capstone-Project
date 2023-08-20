@@ -119,6 +119,18 @@ export class ShopComponent {
     })
   }
 
+  onReset(){
+    this.filterForm.reset();
+    this.productService.getAllProducts().subscribe({
+      next: (results) => {
+        this.products = results;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+    
+  }
 
    //Getters for filterForm
    get grade() {
@@ -152,7 +164,7 @@ export class ShopComponent {
 
   addToCart(product: Iproduct){
     // console.log(product)
-    window.alert('This product has been added to the cart!');
+    window.alert(`${product.name} has been added to the cart!`);
 
     if(!this.cartService.productsInCart(product)){
       this.cartService.addToCart(product);

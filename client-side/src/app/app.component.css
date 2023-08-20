@@ -7,7 +7,8 @@
     display: flex;
     justify-content: center;
     color: #00509d;
-    font-size: 18px;
+    font-size: 1.25vw; 
+    /* play around with the fonts */
     background-color: #FBB0AE;
     border-radius: 10px;
 }
@@ -17,8 +18,8 @@
 }
 
 #banner {
-    width: 400px;
-    height: 100px;
+    width: 35%;
+    height: 30%;
 }
 
 .widget {
@@ -63,8 +64,12 @@ p {
     text-decoration: none;
     text-transform: uppercase;
     color: #00509d;
-    font-size: 20px;
+    font-size: 1.25vw;
     font-weight: bold;
+}
+
+.navlink-side:hover {
+    color: red;
 }
 
 .listnav {
@@ -78,4 +83,9 @@ p {
 .social-icons{
     border-radius: 10px;
     background-color: #fbd294;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

@@ -12,6 +12,10 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getAllProducts(){
+    return this.httpClient.get<Iproduct[]>('http://localhost:4000/products');
+  }
+
   getProducts(params: any = {}){
     return this.httpClient.get<Iproduct[]>('http://localhost:4000/products', {params});
   }

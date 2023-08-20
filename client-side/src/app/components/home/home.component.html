@@ -1,4 +1,52 @@
-<div id="body">
+<div id="body">  
+
+<!-- Button trigger modal -->
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#emailListModal">.</button>
+
+<!-- Modal -->
+<div class="modal fade" id="emailListModal" tabindex="-1" aria-labelledby="emailListModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Get the Latest Updates from STEAM Vault</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Freebie Form -->
+          <div id="freebie" class="my-4">
+            <h4 class="text-center">Download a FREE Online Math Puzzle, straight from your inbox!</h4>
+              <div class="free-info flex-container">
+                <div class="free-img m-2">
+                  <img [src]="free" id="freebie-img">
+                </div>
+      
+                <div class="email-list m-2">
+                  <form [formGroup]="freebieForm">
+                    <!-- Name -->
+                    <input type="text" placeholder="Name" formControlName="name"><br>
+                    <span *ngIf="name.touched && name.errors?.['required']">A name is required</span>
+                    <span *ngIf="name.dirty && name.errors?.['minlength']">Name must be at least 2 characters long</span><br>
+      
+                    <!-- Email -->
+                    <input type="text" placeholder="Email" formControlName="email"><br>
+                    <span *ngIf="email.touched && name.errors?.['required']">An email is required</span>
+                    <span *ngIf="email.dirty && name.errors?.['email']">Please provide a valid email address</span><br>
+      
+                    <button type="button" class="btn btn-primary" [disabled]="freebieForm.invalid"
+                      (click)="onSubmit()">Submit</button>
+      
+                  </form>
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Carousel -->
   <section id="hero-carousel">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -26,10 +74,38 @@
     </div>
   </section>
 
-  <!-- Freebie Section -->
 
 
+  <!-- Back to School Section -->
   <section>
+    <div id="bestseller" class="my-4">
+      <div class="yellow-outline pb-4">
+        <h3 class="p-2 text-white">Back to School Favourites</h3>
+        <div class="free-info p-4 row">
+          <div class="bestseller-info p-4 row ">
+            <h4 class="text-center mb-4">Get {{salePercent}} off our back to school favourites!</h4>
+            <!-- Preview 1 -->
+            <div class="flex-container col-4">
+              <a href="https://www.teacherspayteachers.com/Product/Middle-School-Back-to-School-Math-Activities-8320756" target="_blank"><img [src]="BTS1" class="product-img"></a>
+            </div>
+            <!-- Preview 2 -->
+            <div class="flex-container col-4">
+              <a href="https://www.teacherspayteachers.com/Product/Decimal-Math-Reading-and-Ordering-from-a-Menu-Print-Digital-5887501" target="_blank"><img [src]="BTS2" class=" product-img"></a>
+            </div>
+            <!-- Preview 3 -->
+            <div class="flex-container col-4">
+              <a href="https://www.teacherspayteachers.com/Product/Calculating-Percent-in-the-Stock-Market-8556890" target="_blank"><img [src]="BTS3" class="product-img"></a>
+            </div>
+
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Freebie Section -->
+  <!-- <section>
     <div id="freebie" class="my-4">
       <div class="yellow-outline pb-4">
         <h3 class="p-2 text-white">Self-Checking Online Math Puzzles</h3>
@@ -42,12 +118,12 @@
           <div class="email-list col-6">
             <p>Download a FREE Online Math Puzzle, straight from your inbox!</p>
             <form [formGroup]="freebieForm">
-              <!-- Name -->
+              
               <input type="text" placeholder="Name" formControlName="name"><br>
               <span *ngIf="name.touched && name.errors?.['required']">A name is required</span>
               <span *ngIf="name.dirty && name.errors?.['minlength']">Name must be at least 2 characters long</span><br>
 
-              <!-- Email -->
+              
               <input type="text" placeholder="Email" formControlName="email"><br>
               <span *ngIf="email.touched && name.errors?.['required']">An email is required</span>
               <span *ngIf="email.dirty && name.errors?.['email']">Please provide a valid email address</span><br>
@@ -62,7 +138,7 @@
       </div>
 
     </div>
-  </section>
+  </section> -->
 
   <!-- Products Section -->
   <section>

@@ -11,8 +11,6 @@ import { ProductComponent } from './components/product/product.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -30,8 +28,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule,
    
   ],
   providers: [],

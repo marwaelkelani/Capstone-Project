@@ -25,7 +25,11 @@
                         <option *ngFor="let type of types" [value]="type.type_name">{{type.type_name}}</option>
                     </select> <br><br>
 
-                    <button type="submit" class="btn btn-primary" (click)="onClick()">Apply Changes</button><br><br>
+                    <div>
+                        <button type="submit" class="btn btn-primary mb-2" (click)="onClick()">Apply</button>
+                        <button type="button" class="btn btn-danger mb-2" (click)="onReset()">Reset Filter</button>
+                    </div>
+                   
 
                 </form>
             </div>
@@ -36,7 +40,7 @@
     <div class="col-9" id="product-grid">
         <h1 class="text-center m-4">Shop Resources</h1>
         <div class="row px-5">
-            <div class="col-4" *ngFor="let product of products; let i = index">
+            <div class="col-4 pagination" *ngFor="let product of products; let i = index">
                 <!-- Product Card 1-->
                 <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
                     <a [routerLink]="['/products', product.id]"><img src="{{product.cover}}" class="card-img-top"
@@ -63,8 +67,6 @@
                     </div>
                 </div>
             </div>
-            <mat-paginator [length]="20" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
-                aria-label="Select page"></mat-paginator>
         </div>
     </div>
 </div>

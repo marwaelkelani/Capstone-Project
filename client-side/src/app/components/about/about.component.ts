@@ -37,8 +37,6 @@ get message(){
   return this.contactForm.get('message')!;
 }
 
-
-// TODO: Complete this function when your database are service are created
 onMessage(){
   let newMessage = this.contactForm.value;
   this.contactForm.reset();

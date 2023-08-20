@@ -106,7 +106,7 @@ export class ProductComponent {
       this.cartService.addToCart(product);
       this.productsList = [...this.cartService.getItems()];
       this.subTotal = product.price;
-      window.alert('This product has been added to the cart!');
+      window.alert(`${product.name} has been added to the cart!`);
       this.cartNumberFunc()
     }
   }

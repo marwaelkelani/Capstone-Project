@@ -24,9 +24,10 @@ export class ShoppingCartComponent {
   clearCart(){
     localStorage.removeItem('cart_items');
     this.products = [];
-    this.cartNumberFunc();
+    // this.cartNumberFunc();
     alert('All items have been removed from the shopping cart.')
-    return this.products = this.cartService.getItems();
+    // return this.products = this.cartService.getItems();
+    return this.cartNumber = 0;
   }
 
   //Remove a product from the cart
