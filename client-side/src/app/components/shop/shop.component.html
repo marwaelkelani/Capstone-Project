@@ -25,9 +25,9 @@
                         <option *ngFor="let type of types" [value]="type.type_name">{{type.type_name}}</option>
                     </select> <br><br>
 
-                    <div>
-                        <button type="submit" class="btn btn-primary mb-2" (click)="onClick()">Apply</button>
-                        <button type="button" class="btn btn-danger mb-2" (click)="onReset()">Reset Filter</button>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary mx-1 mb-3 col-5" (click)="onClick()">Apply</button>
+                        <button type="button" class="btn btn-danger mx-1 mb-3 col-5" (click)="onReset()">Reset</button>
                     </div>
                    
 
