@@ -104,42 +104,6 @@
     </div>
   </section>
 
-  <!-- Freebie Section -->
-  <!-- <section>
-    <div id="freebie" class="my-4">
-      <div class="yellow-outline pb-4">
-        <h3 class="p-2 text-white">Self-Checking Online Math Puzzles</h3>
-        <div class="free-info p-4 row">
-          <div class="free-img col-6 offset-3">
-            <img [src]="free" id="freebie-img">
-
-          </div>
-
-          <div class="email-list col-6">
-            <p>Download a FREE Online Math Puzzle, straight from your inbox!</p>
-            <form [formGroup]="freebieForm">
-              
-              <input type="text" placeholder="Name" formControlName="name"><br>
-              <span *ngIf="name.touched && name.errors?.['required']">A name is required</span>
-              <span *ngIf="name.dirty && name.errors?.['minlength']">Name must be at least 2 characters long</span><br>
-
-              
-              <input type="text" placeholder="Email" formControlName="email"><br>
-              <span *ngIf="email.touched && name.errors?.['required']">An email is required</span>
-              <span *ngIf="email.dirty && name.errors?.['email']">Please provide a valid email address</span><br>
-
-              <button type="button" class="btn btn-primary" [disabled]="freebieForm.invalid"
-                (click)="onSubmit()">Submit</button>
-
-            </form>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section> -->
-
   <!-- Products Section -->
   <section>
     <div>

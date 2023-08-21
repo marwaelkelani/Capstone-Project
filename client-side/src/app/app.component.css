@@ -21,6 +21,7 @@
     #banner {
     width: 300px;
     height: auto;
+    margin-left: 75px;
 
 }
 
@@ -39,7 +40,7 @@ p {
 .align{
     display: flex;
     justify-content: space-between;
-    width: 90%
+    width: 95%
 }
 
 #banner-flex{
