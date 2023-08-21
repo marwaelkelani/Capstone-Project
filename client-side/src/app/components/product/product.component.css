@@ -34,3 +34,16 @@ border-radius: 15px;
 .qty-btn:hover{
     background-color: green;
 }
+
+.accordion-body {
+    text-align: left;
+}
+
+p {
+    font-weight: bold;
+}
+
+.product-desc {
+    font-weight: normal;
+    text-align: justify;
+}

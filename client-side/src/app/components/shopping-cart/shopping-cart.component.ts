@@ -12,6 +12,7 @@ export class ShoppingCartComponent {
   products:Iproduct[] = this.cartService.getItems();
   subTotal!: number;
   cartValue!: any;
+  cartNumber: number = 0;
 
 
   constructor(private cartService: ShoppingCartService, private router: Router){
@@ -21,12 +22,12 @@ export class ShoppingCartComponent {
     this.cartService.loadCart();
   }
 
+  //Clear all items from the cart
   clearCart(){
     localStorage.removeItem('cart_items');
     this.products = [];
     // this.cartNumberFunc();
     alert('All items have been removed from the shopping cart.')
-    // return this.products = this.cartService.getItems();
     return this.cartNumber = 0;
   }
 
@@ -79,8 +80,7 @@ export class ShoppingCartComponent {
     }
 
   
-      //Cart Number Update
-      cartNumber: number = 0;
+    //Cart Number Update
       cartNumberFunc(){
         this.cartValue = JSON.parse(localStorage.getItem('cart_items') as any);
         this.cartNumber = this.cartValue.length;
