@@ -1,5 +1,4 @@
-# Capstone-Project
-Capstone Project - Teacherpreneur E-commerce website
+# Capstone-Project - Teacher E-commerce Website
 
 This project is an e-commerce website for teacher sellers to seller digital resources. 
 
