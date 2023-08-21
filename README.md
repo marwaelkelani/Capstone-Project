@@ -17,7 +17,8 @@ Some of the key highlights include:
 
 1) **Shopping Cart**<br>
    This includes updating the number in the navbar when a new type of product is added or removed, updating the quantity and price and checkout form.<br>
-![Screen Shot 2023-08-21 at 6 49 51 PM](https://github.com/marwaelkelani/Capstone-Project/assets/126745070/fbfe096f-f39b-4ea9-af08-5fbb957a3ecb)
+<img width="1455" alt="Screen Shot 2023-08-21 at 7 19 04 PM" src="https://github.com/marwaelkelani/Capstone-Project/assets/126745070/1d87f6f9-a86c-4d80-9f95-ac6fdc428e83">
+
 
 
 2) **Filtering Products**<br>
