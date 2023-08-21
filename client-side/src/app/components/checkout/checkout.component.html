@@ -1,12 +1,12 @@
 <div class="row mt-5 mb-5">
-    <h1 class="text-center">Checkout</h1>
+    <h1 class="text-center mb-3">Checkout</h1>
     <div class="row">
 
       <!-- Checkout Form -->
-    <div class="form col-8 offset-1">
+    <div class="form col-lg-8 col-sm-12 px-5 mb-3">
       
         <form [formGroup]="checkoutForm">
-            <h3>Contact Information</h3>
+            <h3 class="mb-2">Contact Information</h3>
             <hr>
             <div class="row">
                 <div class="col">
@@ -27,7 +27,7 @@
               <div class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
-            <h3>Credit Card Information</h3>
+            <h3 class="mb-2">Credit Card Information</h3>
             <hr>
             <div class="mb-3">
                 <input type="tel" pattern="[0-9]*" maxlength="16" class="form-control" placeholder="Card Number" formControlName="card_number">
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Order Summary -->
-    <div class="col-3">
+    <div class="col-lg-3 col-sm-12 px-3">
     <div class="ordersummary p-4">
       <h4 class="text-center">Order Summary</h4>
       <div class="flex-container">

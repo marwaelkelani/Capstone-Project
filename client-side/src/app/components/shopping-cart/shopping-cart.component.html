@@ -8,24 +8,25 @@
         <thead>
           <tr>
             <th scope="col">Product Id</th>
-            <th scope="col" class="text-center">Product Name</th>
-            <th scope="col" class="text-center">Quantity</th>
-            <th scope="col" class="text-center">Subtotal</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Subtotal</th>
             <th scope="col" class="text-center">Remove Product</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of products">
             <th scope="row">{{product.id}}</th>
-            <td class="text-center">{{product.name}}</td>
-            <td class="text-center">
-              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
-              <span class="product mx-3">{{product.quantity}}</span>
-              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
-              
+            <td>{{product.name}}</td>
+            <td>
+              <div class="quantity-amt row">
+              <span class="quantity col-lg-2 col-sm-2"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
+              <span class="product col-lg-2 col-sm-2 text-center">{{product.quantity}}</span>
+              <span class="quantity col-lg-2 col-sm-2"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
+            </div>
             </td>
-            <td class="text-center">{{product.price * product.quantity | currency}}</td>
-            <td class="text-center"><button type="button" class="btn btn-primary" (click)="removeFromCart(product)">Remove Product</button></td>
+            <td>{{product.price * product.quantity | currency}}</td>
+            <td class="text-center"><button type="button" class="btn btn-danger" (click)="removeFromCart(product)"><i class="fa-solid fa-trash"></i></button></td>
           </tr>
         </tbody>
         <tr>
