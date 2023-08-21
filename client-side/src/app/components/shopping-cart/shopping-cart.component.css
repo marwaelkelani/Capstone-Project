@@ -11,3 +11,8 @@
 .qty-btn:hover{
     background-color: green;
 }
+
+.quantity-amt {
+    display: flex;
+    justify-content: flex-start;
+}

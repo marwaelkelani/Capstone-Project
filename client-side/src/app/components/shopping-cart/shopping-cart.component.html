@@ -9,7 +9,7 @@
           <tr>
             <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
+            <th scope="col" class="tex-center">Quantity</th>
             <th scope="col">Subtotal</th>
             <th scope="col" class="text-center">Remove Product</th>
           </tr>
@@ -19,10 +19,10 @@
             <th scope="row">{{product.id}}</th>
             <td>{{product.name}}</td>
             <td>
-              <div class="quantity-amt row">
-              <span class="quantity col-lg-2 col-sm-2"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
-              <span class="product col-lg-2 col-sm-2 text-center">{{product.quantity}}</span>
-              <span class="quantity col-lg-2 col-sm-2"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
+              <div class="quantity-amt">
+              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
+              <span class="product mx-3">{{product.quantity}}</span>
+              <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
             </div>
             </td>
             <td>{{product.price * product.quantity | currency}}</td>
