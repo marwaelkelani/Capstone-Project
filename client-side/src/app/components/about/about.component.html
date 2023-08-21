@@ -1,16 +1,15 @@
 
-
+<h1 class="col-lg-12 col-sm-12 my-5 text-center">Hi there! <i class="fa-regular fa-hand-peace"></i><br>Welcome to STEAM Vault</h1>
 <div class="row">
-    <h1 class="col-6 offset-5 my-5">About</h1>
     <!-- Right Side -->
-    <div class="col-5 offset-2 my-4 p-4">
-        <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, rerum velit sit inventore, ut dolorem hic accusantium quidem minus id voluptatibus, nihil totam quasi et libero? Quia velit alias eaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae fugiat placeat eos debitis impedit, perferendis aliquid dignissimos! Facilis impedit ipsa iste nulla vero aut tempore necessitatibus nihil rem possimus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste alias officiis expedita deleniti ad nesciunt similique consectetur labore, quidem totam necessitatibus corporis sit debitis enim. Aliquam libero voluptas molestias fugit? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus iure esse molestias similique dolores dicta reiciendis, voluptas illum ad ea laudantium nisi mollitia fuga, in ut quis reprehenderit sunt sed.</p></div>
+    <div class="col-lg-8 col-sm-12 offset-4 my-4 p-4" id="about">
+        <div class="col-lg-10 col-sm-12 offset-lg-2"><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, rerum velit sit inventore, ut dolorem hic accusantium quidem minus id voluptatibus, nihil totam quasi et libero? Quia velit alias eaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae fugiat placeat eos debitis impedit, perferendis aliquid dignissimos! Facilis impedit ipsa iste nulla vero aut tempore necessitatibus nihil rem possimus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste alias officiis expedita deleniti ad nesciunt similique consectetur labore, quidem totam necessitatibus corporis sit debitis enim. Aliquam libero voluptas molestias fugit? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus iure esse molestias similique dolores dicta reiciendis, voluptas illum ad ea laudantium nisi mollitia fuga, in ut quis reprehenderit sunt sed.</p></div>
     </div>
    
     <!-- Left Side -->
    
-    <div class="col-4 my-4 p-4">
-        <img [src]="profile" id="profile-pic">
+    <div class="col-lg-4 col-sm-12 offset-4 p-4" id="left-side">
+        <img [src]="profile" id="profile-pic" class="img-fluid">
     </div>
 </div>
 
@@ -21,7 +20,7 @@
         <div class="blue-outline pb-4">
             <h3 class="p-2 text-white">Contact Me</h3>
             <div class="contact-form p-4 row">
-                <form class="col-6 offset-3" [formGroup]="contactForm">
+                <form class="col-lg-6 col-sm-12 offset-lg-3" [formGroup]="contactForm">
 
                     <!-- First Name -->
                     <div class="mb-3">

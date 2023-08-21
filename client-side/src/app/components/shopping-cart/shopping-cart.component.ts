@@ -29,12 +29,14 @@ export class ShoppingCartComponent {
     // this.cartNumberFunc();
     alert('All items have been removed from the shopping cart.')
     this.cartService.cartSubject.next(this.cartNumber);
+    return this.cartNumber = 0;
   }
 
   //Remove a product from the cart
   removeFromCart(product:any){
     this.cartService.removeProduct(product);
-    this.cartNumberFunc()
+    this.cartNumberFunc();
+    this.cartService.cartSubject.next(this.cartNumber);
     return this.products = this.cartService.getItems();
   }
 

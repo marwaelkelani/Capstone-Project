@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     color: #00509d;
-    font-size: 1.25vw; 
+    font-size: 18px; 
     /* play around with the fonts */
     background-color: #FBB0AE;
     border-radius: 10px;
@@ -17,13 +17,16 @@
     color:white;
 }
 
-#banner {
-    width: 35%;
-    height: 30%;
+
+    #banner {
+    width: 300px;
+    height: auto;
+
 }
 
+
 .widget {
-    width: 3vw;
+    width: 50px;;
 }
 
 p {
@@ -64,7 +67,7 @@ p {
     text-decoration: none;
     text-transform: uppercase;
     color: #00509d;
-    font-size: 1.25vw;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -77,7 +80,7 @@ p {
 }
 
 #side-banner {
-    width: 70%;
+    width: 300px;
 }
 
 .social-icons{

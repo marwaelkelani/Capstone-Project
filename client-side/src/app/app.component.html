@@ -2,17 +2,17 @@
 <div class="align row">
 
   <!-- SideNav -->
-  <div class="col-1 p-4">
+  <div class="col-1">
     <div class="top-bar">
       <button class="btn px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample">
-        <i class="fa-solid fa-bars fa-3x"></i></button>
+        <i class="fa-solid fa-bars fa-2x"></i></button>
 
       <!-- Side Bar Toggled On -->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-          <img id="side-banner" [src]="banner">
+          <img id="side-banner" class="img-fluid" [src]="banner">
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -60,12 +60,12 @@
     </div>
   </div>
 
-  <div class="col-9">
-    <a routerLink="/" id="banner-flex"><img [src]="banner" id="banner"></a>
+  <div class="col-lg-9 col-sm-6">
+    <a routerLink="/" id="banner-flex"><img [src]="banner" id="banner" class="img-fluid"></a>
   </div>
 
   <!-- Widgets -->
-  <div id="subnav" class="mt-3 col-1">
+  <div id="subnav" class="mt-3 col-lg-1 col-sm-1">
     
     <!-- Cart -->
     <div class="p-4">
@@ -80,13 +80,13 @@
 </div>
 
 <div class="widget-bar">
-      <div><a routerLink="/shop"><img [src]="math" class="widget">
+      <div><a routerLink="/shop"><img [src]="math" class="widget img-fluid">
       <p>Shop</p></a>
       </div>
-    <div><img [src]="science" class="widget">
+    <div><img [src]="science" class="widget img-fluid">
       <p>Blog</p>
     </div>
-    <div><a routerLink="/about"><img [src]="tech" class="widget">
+    <div><a routerLink="/about"><img [src]="tech" class="widget img-fluid">
       <p>Contact</p></a>
     </div>
 </div>

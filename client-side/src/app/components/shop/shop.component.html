@@ -1,10 +1,10 @@
 <div class="row">
     <!-- Filter Side -->
-    <div class="col-3" id="filter">
+    <div class="col-lg-3 col-sm-12" id="filter">
         <div id="filter-outline" class="mt-5">
             <h2 class="text-center" id="filter-title">Filter</h2>
             <div class="row">
-                <form class="col-6 offset-1" [formGroup]="filterForm">
+                <form class="col-lg-6 col-sm-12 mx-3" [formGroup]="filterForm">
                     <h4>Grade</h4>
                     <input type="radio" name="grade_number" value="6" formControlName="grade_number"> Grade 6 <br>
                     <input type="radio" name="grade_number" value="7" formControlName="grade_number"> Grade 7 <br>
@@ -26,8 +26,11 @@
                     </select> <br><br>
 
                     <div class="row">
-                        <button type="submit" class="btn btn-primary mx-1 mb-3 col-5" (click)="onClick()">Apply</button>
-                        <button type="button" class="btn btn-danger mx-1 mb-3 col-5" (click)="onReset()">Reset</button>
+                        <div class="col-lg-12 col-sm-6">
+                            <button type="submit" class="btn btn-primary mx-1 mb-3" (click)="onClick()">Apply</button>
+                            <button type="button" class="btn btn-danger mx-1 mb-3" (click)="onReset()">Reset</button>
+                        </div>
+                        
                     </div>
                    
 
@@ -40,9 +43,9 @@
     <div class="col-9" id="product-grid">
         <h1 class="text-center m-4">Shop Resources</h1>
         <div class="row px-5">
-            <div class="col-4 pagination" *ngFor="let product of products; let i = index">
+            <div class="col-lg-4 col-sm-12" *ngFor="let product of products; let i = index">
                 <!-- Product Card 1-->
-                <div class="card col-4 offset-4 mx-4 my-4" style="width: 18rem;">
+                <div class="card col-lg-4 col-sm-12 offset-4 mx-4 my-4 img-fluid" style="width: 18rem;">
                     <a [routerLink]="['/products', product.id]"><img src="{{product.cover}}" class="card-img-top"
                             alt="product image"></a>
                     <div class="card-body">

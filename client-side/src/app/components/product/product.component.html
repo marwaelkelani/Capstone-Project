@@ -6,16 +6,16 @@
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{product.cover}}" class="d-block w-100" alt="...">
+          <img src="{{product.cover}}" class="d-block w-100 img-fluid" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="{{product.preview1}}" class="d-block w-100" alt="...">
+          <img src="{{product.preview1}}" class="d-block w-100 img-fluid" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="{{product.preview2}}" class="d-block w-100" alt="...">
+          <img src="{{product.preview2}}" class="d-block w-100 img-fluid" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="{{product.preview3}}" class="d-block w-100" alt="...">
+          <img src="{{product.preview3}}" class="d-block w-100 img-fluid" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -35,7 +35,7 @@
 
 
     <!-- Product Info on the Left -->
-    <div class="col-4 product-info p-4">
+    <div class="col-lg-4 col-sm-12 product-info p-4">
       <h1>{{product.name}}</h1>
       <h3>{{product.quantity*product.price | currency}}</h3>
       
@@ -87,9 +87,7 @@
       <div class="text-center">
         <span class="quantity"><button class="btn btn-warning qty-btn" (click)="dec(product)"><i class="fa-solid fa-minus"></i></button></span>
         <span class="product mx-3">{{product.quantity}}</span>
-        <!-- <input [(ngModel)]="product.quantity" [ngModelOptions] ="{standalone: true}" type="number" min="1"> -->
         <span class="quantity"><button class="btn btn-warning qty-btn" (click)="inc(product)"><i class="fa-solid fa-plus"></i></button></span>
-        <!-- <h6>SubTotal: {{product.quantity*product.price | currency}}</h6> -->
       </div>
 
       <!-- Buttons -->

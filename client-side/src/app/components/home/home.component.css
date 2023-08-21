@@ -20,9 +20,9 @@ h2 {
     height: 600px;
 }
 
-.carousel .carousel-item {
-    height: 500px;
-  }
+/* .carousel .carousel-item {
+    height: 650px;
+  } */
   
   .carousel-item img {
     height: 100% !important;
@@ -31,10 +31,9 @@ h2 {
     margin-right: auto
   }
 
-#hero-carousel{
+/* #hero-carousel{
     width: 100vw;
-
-} 
+}  */
 
 img {
     width: 100vw;
@@ -52,7 +51,7 @@ img {
 
 h3 {
     background-color: #004AAD;
-    width: 600px;
+    /* width: 600px; */
     text-align: center;
     margin-right: auto;
     margin-left: auto;

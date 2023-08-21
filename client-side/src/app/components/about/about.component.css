@@ -2,6 +2,15 @@
     height: 70%;
     border-radius: 50%;
     border: 3px solid #003f88;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#left-side{
+    margin-right: auto;
+    margin-left: auto; 
+    display: flex;
+    justify-content: center;
 }
 
 .blue-outline{
@@ -12,7 +21,6 @@
 
 h3 {
     background-color: #00509d;
-    width: 600px;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
@@ -21,4 +29,9 @@ h3 {
 
 h1 {
     font-size: 75px;
+}
+
+#about {
+    margin-right: auto;
+    margin-left: auto;
 }
