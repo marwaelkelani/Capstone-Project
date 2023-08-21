@@ -144,6 +144,7 @@ export class ShopComponent {
   get type() {
     return this.filterForm.get('type')!;
   }
+  
   //SHOPPING CART 
   ///Add product to cart
 
@@ -194,13 +195,10 @@ export class ShopComponent {
     
     //Incrementor Methods
     inc(product: Iproduct){
-      // console.log(product.quantity)
       product.quantity += 1;
     }
   
-    dec(product: Iproduct){
-      // console.log(product.quantity);
-  
+    dec(product: Iproduct){  
       if(product.quantity !=1 ){
         product.quantity -= 1;
       }

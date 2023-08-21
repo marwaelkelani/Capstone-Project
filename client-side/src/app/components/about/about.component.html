@@ -26,32 +26,32 @@
                     <div class="mb-3">
                         <label class="form-label">First Name</label>
                         <input type="text" class="form-control" formControlName="first_name">
-                        <span *ngIf="first_name.touched && first_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name</span>
-                        <span *ngIf="first_name.dirty && first_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                        <span *ngIf="first_name.touched && first_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name.</span>
+                        <span *ngIf="first_name.dirty && first_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long.</span>
                       </div>
 
                       <!-- Last Name -->
                       <div class="mb-3">
                         <label class="form-label">Last Name</label>
                         <input type="text" class="form-control" formControlName="last_name">
-                        <span *ngIf="last_name.touched && last_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name</span>
-                        <span *ngIf="last_name.dirty && last_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                        <span *ngIf="last_name.touched && last_name.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide a name.</span>
+                        <span *ngIf="last_name.dirty && last_name.errors?.['minlength']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long.</span>
                       </div>
 
                     <!-- Email -->
                     <div class="mb-3">
                         <label class="form-label">Email</label>
                         <input type="text" class="form-control" formControlName="email">
-                        <span *ngIf="email.touched && email.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide an email</span>
-                        <span *ngIf="email.dirty && email.errors?.['email']" [ngStyle]="{'color': redColor}">Name must be at least 2 characters long</span>
+                        <span *ngIf="email.touched && email.errors?.['required']" [ngStyle]="{'color': redColor}">Please provide an email.</span>
+                        <span *ngIf="email.dirty && email.errors?.['email']" [ngStyle]="{'color': redColor}">Please provide a valid email.</span>
                       </div>
                     <!-- Message -->
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Message</label>
                         <textarea class="form-control" rows="3" formControlName="message"></textarea>
-                        <span *ngIf="message.touched && message.errors?.['required']" [ngStyle]="{'color': redColor}">Please include a message</span>
+                        <span *ngIf="message.touched && message.errors?.['required']" [ngStyle]="{'color': redColor}">Please include a message.</span>
                       </div>
-                    <button type="submit" class="btn btn-primary" (click)="onMessage()">Submit</button>
+                    <button type="submit" class="btn btn-primary" (click)="onMessage()" [disabled]="contactForm.invalid">Submit</button>
                   </form>
         
                 
