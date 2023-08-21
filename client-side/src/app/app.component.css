@@ -39,6 +39,7 @@ p {
 .align{
     display: flex;
     justify-content: space-between;
+    width: 90%
 }
 
 #banner-flex{
