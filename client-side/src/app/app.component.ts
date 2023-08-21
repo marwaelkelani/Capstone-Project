@@ -20,6 +20,9 @@ export class AppComponent {
   //shopping cart icon
   cartItems: number = 0;
 
+  cartValue!: any;
+  cartNumber: number = 0;
+
   constructor(private cartService: ShoppingCartService){
     this.products = this.cartService.getItems();
     this.cartService.loadCart();
@@ -31,6 +34,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.cartItemFunc();
+    
   }
 
   getItems(){
@@ -43,6 +47,13 @@ export class AppComponent {
       var cartCount = JSON.parse(localStorage.getItem('cart_items') as any);
       this.cartItems = cartCount.length;
     }
+  }
+
+  //Cart Number Update
+  cartNumberFunc(){
+    this.cartValue = JSON.parse(localStorage.getItem('cart_items') as any);
+    this.cartNumber = this.cartValue.length;
+    this.cartService.cartSubject.next(this.cartNumber);
   }
    
   }

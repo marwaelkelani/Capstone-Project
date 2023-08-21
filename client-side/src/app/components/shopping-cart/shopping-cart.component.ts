@@ -28,7 +28,7 @@ export class ShoppingCartComponent {
     this.products = [];
     // this.cartNumberFunc();
     alert('All items have been removed from the shopping cart.')
-    return this.cartNumber = 0;
+    this.cartService.cartSubject.next(this.cartNumber);
   }
 
   //Remove a product from the cart
