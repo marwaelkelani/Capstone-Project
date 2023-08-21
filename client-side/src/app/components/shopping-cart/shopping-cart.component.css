@@ -16,3 +16,7 @@
     display: flex;
     justify-content: flex-start;
 }
+
+#img-preview{
+    width: 150px;
+}

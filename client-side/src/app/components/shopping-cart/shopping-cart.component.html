@@ -8,6 +8,7 @@
         <thead>
           <tr>
             <th scope="col">Product Id</th>
+            <th scope="col">Product Preview</th>
             <th scope="col">Product Name</th>
             <th scope="col" class="tex-center">Quantity</th>
             <th scope="col">Subtotal</th>
@@ -17,6 +18,7 @@
         <tbody>
           <tr *ngFor="let product of products">
             <th scope="row">{{product.id}}</th>
+            <td><img src="{{product.cover}}" id="img-preview"></td>
             <td>{{product.name}}</td>
             <td>
               <div class="quantity-amt">
