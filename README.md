@@ -26,7 +26,7 @@ This project is an e-commerce website for teacher sellers to seller digital reso
    <li>Angular</li>
    <li>MariaDB</li>
    <li>Bootstrap</li>
-   <li>Nokde.js</li> 
+   <li>Node.js</li> 
 </ul>
 
    ![Screen Shot 2023-08-21 at 6 46 30 PM](https://github.com/marwaelkelani/Capstone-Project/assets/126745070/bd073b70-4017-4c6e-a723-bee1948f9848)
