@@ -1,15 +1,33 @@
 # Capstone-Project - Teacher E-commerce Website
 
+**Dependencies**
+<ul>
+   <li>Express</li>
+   <li>Sequelize</li>
+   <li>Mariadb</li>
+   <li>CORS</li>
+</ul>
+
+**Getting Started**
+<ul>
+   <li>Install all dependencies using the <code> npm install </code> command</li>
+   <li>Run the backend webserver using <code> node index.js </code> when you are in the server-side directory</li>
+   <li>Run the front-end webserver using <code> ng serve </code> when you are in the client-side directory</li>
+</ul>
+
 This project is an e-commerce website for teacher sellers to seller digital resources. 
 
+
 **Technology Stack:** <br>
---TypeScript<br>
---HTML<br>
---CSS<br>
---Angular<br>
---MariaDB<br>
---Bootstrap<br>
---Node.js<br>
+<ul>
+   <li>TypeScript</li>
+   <li>HTML</li>
+   <li>CSS</li>
+   <li>Angular</li>
+   <li>MariaDB</li>
+   <li>Bootstrap</li>
+   <li>Nokde.js</li> 
+</ul>
 
    ![Screen Shot 2023-08-21 at 6 46 30 PM](https://github.com/marwaelkelani/Capstone-Project/assets/126745070/bd073b70-4017-4c6e-a723-bee1948f9848)
 
